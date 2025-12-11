@@ -47,7 +47,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 28px;
+      margin-bottom: 16px;
       gap: 16px;
     }
 
@@ -96,6 +96,40 @@
       color: var(--text-main);
     }
 
+    /* Barra de controles */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .controls label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+    }
+
+    .controls select {
+      background: rgba(255,255,255,0.02);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 10px;
+      font-size: 12px;
+      outline: none;
+    }
+
     section {
       margin-bottom: 28px;
     }
@@ -134,6 +168,9 @@
       header {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .controls {
+        justify-content: flex-start;
       }
     }
 
@@ -226,7 +263,7 @@
     th, td {
       border-bottom: 1px solid rgba(255,255,255,0.04);
       padding: 6px 4px;
-      text-align: right;
+      text-align: center;
       white-space: nowrap;
     }
 
@@ -236,11 +273,6 @@
       font-size: 11px;
       color: var(--text-soft);
       font-weight: 600;
-    }
-
-    th:first-child,
-    td:first-child {
-      text-align: left;
     }
 
     tr:last-child td {
@@ -257,7 +289,6 @@
     .table-pxq td:nth-child(3),
     .table-pxq td:nth-child(4),
     .table-pxq td:nth-child(5) {
-      text-align: center;
       font-size: 11px;
       color: var(--text-soft);
     }
@@ -356,11 +387,6 @@
       padding: 7px 4px;
     }
 
-    .panel-control th:first-child,
-    .panel-control td:first-child {
-      text-align: left;
-    }
-
     .panel-control thead tr.month-row th {
       font-size: 11px;
       text-transform: uppercase;
@@ -406,7 +432,6 @@
     <!-- ================= HEADER ================= -->
     <header>
       <div style="display:flex; align-items:center; gap:16px;">
-        <!-- Reemplazar por PNG del logo Casa Creativa si querés -->
         <div class="logo-mark"></div>
         <div class="title-block">
           <h1>Casa Creativa</h1>
@@ -420,13 +445,23 @@
       </nav>
     </header>
 
-    <!-- SELECTOR DE DIVISA -->
-    <div style="margin-bottom:20px;">
-      <label style="font-size:13px; color:#b3b3c2; margin-right:10px;">Seleccionar divisa:</label>
-      <select id="currencySelector" style="padding:6px 12px; border-radius:8px; background:#1f1f30; color:white; border:1px solid rgba(255,255,255,0.1);">
-        <option value="ARS">Pesos Argentinos</option>
-        <option value="USD">Dólares Estadounidenses</option>
-      </select>
+    <!-- ================= CONTROLES GLOBALES ================= -->
+    <div class="controls">
+      <div class="controls-group">
+        <label for="scenarioSelect">Escenario</label>
+        <select id="scenarioSelect">
+          <option value="Optimista" selected>Optimista</option>
+          <option value="Moderado">Moderado</option>
+          <option value="Pesimista">Pesimista</option>
+        </select>
+      </div>
+      <div class="controls-group">
+        <label for="currencySelect">Seleccionar divisa</label>
+        <select id="currencySelect">
+          <option value="ARS" selected>Pesos Argentinos</option>
+          <option value="USD">Dólares Estadounidenses</option>
+        </select>
+      </div>
     </div>
 
     <!-- ===================== PxQ ===================== -->
@@ -443,7 +478,7 @@
                 <div class="card-sub">Totales mensuales netos de IVA – 2026</div>
               </div>
               <div>
-                <div class="card-kpi money" data-ars="55400000"></div>
+                <div class="card-kpi money" id="pxqPresencialPeakKpi">$55.403.054</div>
                 <div class="card-sub">Pico mensual estimado</div>
               </div>
             </div>
@@ -458,80 +493,25 @@
                   <th>Altas</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td data-note="Inicio ciclo presencial">May</td>
-                  <td class="money" data-ars="24014180"></td>
-                  <td>200</td>
-                  <td>0</td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                  <td>Jun</td>
-                  <td class="money" data-ars="19389756"></td>
-                  <td>186</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td data-note="Pico continuidad">Jul</td>
-                  <td class="money" data-ars="36565891"></td>
-                  <td>317</td>
-                  <td>147</td>
-                  <td>170</td>
-                </tr>
-                <tr>
-                  <td>Ago</td>
-                  <td class="money" data-ars="32291971"></td>
-                  <td>295</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td data-note="Pico temporada">Sep</td>
-                  <td class="money" data-ars="50032406"></td>
-                  <td>429</td>
-                  <td>233</td>
-                  <td>196</td>
-                </tr>
-                <tr>
-                  <td>Oct</td>
-                  <td class="money" data-ars="45862863"></td>
-                  <td>399</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Nov</td>
-                  <td class="money" data-ars="55403054"></td>
-                  <td>471</td>
-                  <td>315</td>
-                  <td>156</td>
-                </tr>
-                <tr>
-                  <td>Dic</td>
-                  <td class="money" data-ars="53007870"></td>
-                  <td>438</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
+              <tbody id="pxqPresencialBody">
+                <!-- Filas generadas por JavaScript según escenario -->
               </tbody>
             </table>
 
             <div class="bar-row">
               <div class="bar-label">Promedio anual alumnos</div>
               <div class="bar-shell">
-                <div class="bar-fill" style="--fill:0.80;"></div>
+                <div class="bar-fill" id="barPresencialPromedioFill" style="--fill:0.80;"></div>
               </div>
-              <div class="bar-value">316 pax</div>
+              <div class="bar-value" id="barPresencialPromedioValue">316 pax</div>
             </div>
 
             <div class="bar-row">
               <div class="bar-label">Crecimiento inscripciones</div>
               <div class="bar-shell">
-                <div class="bar-fill" style="--fill:0.68;"></div>
+                <div class="bar-fill" id="barPresencialCrecimientoFill" style="--fill:0.68;"></div>
               </div>
-              <div class="bar-value">+18% anual</div>
+              <div class="bar-value" id="barPresencialCrecimientoValue">+18% anual</div>
             </div>
           </div>
         </div>
@@ -545,7 +525,7 @@
                 <div class="card-sub">Totales mensuales netos de IVA – 2026</div>
               </div>
               <div>
-                <div class="card-kpi money" data-ars="20400000"></div>
+                <div class="card-kpi money" id="pxqOnlinePeakKpi">$20.473.544</div>
                 <div class="card-sub">Pico mensual estimado</div>
               </div>
             </div>
@@ -560,80 +540,25 @@
                   <th>Altas</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td data-note="Inicio ciclo online">May</td>
-                  <td class="money" data-ars="10806381"></td>
-                  <td>90</td>
-                  <td>0</td>
-                  <td>90</td>
-                </tr>
-                <tr>
-                  <td>Jun</td>
-                  <td class="money" data-ars="8725390"></td>
-                  <td>84</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Jul</td>
-                  <td class="money" data-ars="14033928"></td>
-                  <td>156</td>
-                  <td>66</td>
-                  <td>90</td>
-                </tr>
-                <tr>
-                  <td>Ago</td>
-                  <td class="money" data-ars="12020184"></td>
-                  <td>145</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Sep</td>
-                  <td class="money" data-ars="18375015"></td>
-                  <td>205</td>
-                  <td>115</td>
-                  <td>90</td>
-                </tr>
-                <tr>
-                  <td>Oct</td>
-                  <td class="money" data-ars="16562283"></td>
-                  <td>190</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Nov</td>
-                  <td class="money" data-ars="20473544"></td>
-                  <td>227</td>
-                  <td>151</td>
-                  <td>77</td>
-                </tr>
-                <tr>
-                  <td>Dic</td>
-                  <td class="money" data-ars="19291993"></td>
-                  <td>211</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
+              <tbody id="pxqOnlineBody">
+                <!-- Filas generadas por JavaScript según escenario -->
               </tbody>
             </table>
 
             <div class="bar-row">
               <div class="bar-label">Promedio anual alumnos</div>
               <div class="bar-shell">
-                <div class="bar-fill" style="--fill:0.75;"></div>
+                <div class="bar-fill" id="barOnlinePromedioFill" style="--fill:0.75;"></div>
               </div>
-              <div class="bar-value">151 pax</div>
+              <div class="bar-value" id="barOnlinePromedioValue">151 pax</div>
             </div>
 
             <div class="bar-row">
               <div class="bar-label">Crecimiento inscripciones</div>
               <div class="bar-shell">
-                <div class="bar-fill" style="--fill:0.64;"></div>
+                <div class="bar-fill" id="barOnlineCrecimientoFill" style="--fill:0.64;"></div>
               </div>
-              <div class="bar-value">+16% anual</div>
+              <div class="bar-value" id="barOnlineCrecimientoValue">+16% anual</div>
             </div>
           </div>
         </div>
@@ -654,7 +579,7 @@
                 <div class="card-sub">Staff, alquiler, marketing, licencias e impuestos</div>
               </div>
               <div>
-                <div class="card-kpi money" data-ars="23900000"></div>
+                <div class="card-kpi money" id="egresosPeakKpi">$23.906.168</div>
                 <div class="card-sub">Máximo proyectado</div>
               </div>
             </div>
@@ -667,47 +592,8 @@
                   <th>Impuestos</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>May</td>
-                  <td class="money" data-ars="23106168"></td>
-                  <td class="money" data-ars="10446168"></td>
-                </tr>
-                <tr>
-                  <td>Jun</td>
-                  <td class="money" data-ars="21327044"></td>
-                  <td class="money" data-ars="8434544"></td>
-                </tr>
-                <tr>
-                  <td>Jul</td>
-                  <td class="money" data-ars="31530758"></td>
-                  <td class="money" data-ars="15179946"></td>
-                </tr>
-                <tr>
-                  <td>Ago</td>
-                  <td class="money" data-ars="29875596"></td>
-                  <td class="money" data-ars="13293646"></td>
-                </tr>
-                <tr>
-                  <td>Sep</td>
-                  <td class="money" data-ars="40449112"></td>
-                  <td class="money" data-ars="20522226"></td>
-                </tr>
-                <tr>
-                  <td>Oct</td>
-                  <td class="money" data-ars="38903697"></td>
-                  <td class="money" data-ars="18727544"></td>
-                </tr>
-                <tr>
-                  <td>Nov</td>
-                  <td class="money" data-ars="46454245"></td>
-                  <td class="money" data-ars="22762979"></td>
-                </tr>
-                <tr>
-                  <td>Dic</td>
-                  <td class="money" data-ars="45680506"></td>
-                  <td class="money" data-ars="21689959"></td>
-                </tr>
+              <tbody id="gastosMensualesBody">
+                <!-- Filas generadas por JavaScript según escenario -->
               </tbody>
             </table>
           </div>
@@ -784,13 +670,13 @@
               <div class="card-title">Panel de control 2026</div>
               <div class="card-sub">Rentabilidad, facturación, impuestos y utilidad · Casa Creativa</div>
             </div>
-            <div class="tag-neutral">Proyección anual</div>
+            <div class="tag-neutral">Proyección anual · Escenarios</div>
           </div>
 
           <table>
             <thead>
               <tr class="month-row">
-                <th></th>
+                <th>Tipo</th>
                 <th>May</th>
                 <th>Jun</th>
                 <th>Jul</th>
@@ -805,110 +691,110 @@
             <tbody>
               <tr class="metric-ingreso">
                 <td>Rentabilidad %</td>
-                <td>43%</td>
-                <td>20%</td>
-                <td>34%</td>
-                <td>29%</td>
-                <td>38%</td>
-                <td>35%</td>
-                <td>36%</td>
-                <td>34%</td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
+                <td class="pc-rent"></td>
               </tr>
 
               <tr>
                 <td>Fact. Presencial</td>
-                <td class="money" data-ars="24014180"></td>
-                <td class="money" data-ars="19389756"></td>
-                <td class="money" data-ars="36565891"></td>
-                <td class="money" data-ars="32291971"></td>
-                <td class="money" data-ars="50032406"></td>
-                <td class="money" data-ars="45862863"></td>
-                <td class="money" data-ars="55403054"></td>
-                <td class="money" data-ars="53007870"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td>
               </tr>
 
               <tr>
                 <td>Fact. Online</td>
-                <td class="money" data-ars="10806381"></td>
-                <td class="money" data-ars="8725390"></td>
-                <td class="money" data-ars="14033928"></td>
-                <td class="money" data-ars="12020184"></td>
-                <td class="money" data-ars="18375015"></td>
-                <td class="money" data-ars="16562283"></td>
-                <td class="money" data-ars="20473544"></td>
-                <td class="money" data-ars="19291993"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td>
               </tr>
 
               <tr>
                 <td>Mentoring</td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
-                <td class="money" data-ars="2550000"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td>
               </tr>
 
               <tr>
                 <td>Cabina</td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
-                <td class="money" data-ars="3000000"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td>
               </tr>
 
               <tr class="metric-egreso">
                 <td>Impuestos</td>
-                <td class="money" data-ars="10446168"></td>
-                <td class="money" data-ars="8434544"></td>
-                <td class="money" data-ars="15179946"></td>
-                <td class="money" data-ars="13293646"></td>
-                <td class="money" data-ars="20522226"></td>
-                <td class="money" data-ars="18727544"></td>
-                <td class="money" data-ars="22762979"></td>
-                <td class="money" data-ars="21689959"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td>
               </tr>
 
               <tr class="metric-egreso">
                 <td>Total Egresos</td>
-                <td class="money" data-ars="12660000"></td>
-                <td class="money" data-ars="12892500"></td>
-                <td class="money" data-ars="16350813"></td>
-                <td class="money" data-ars="16581950"></td>
-                <td class="money" data-ars="19926885"></td>
-                <td class="money" data-ars="20176153"></td>
-                <td class="money" data-ars="23691265"></td>
-                <td class="money" data-ars="23990547"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td>
               </tr>
 
               <tr class="money-strong">
                 <td>Facturación Bruta</td>
-                <td class="money" data-ars="40370561"></td>
-                <td class="money" data-ars="33665146"></td>
-                <td class="money" data-ars="56149819"></td>
-                <td class="money" data-ars="49862155"></td>
-                <td class="money" data-ars="73957421"></td>
-                <td class="money" data-ars="67975147"></td>
-                <td class="money" data-ars="81426598"></td>
-                <td class="money" data-ars="77849863"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td>
               </tr>
 
               <tr class="metric-ingreso">
                 <td>Utilidad $</td>
-                <td class="money" data-ars="17264393"></td>
-                <td class="money" data-ars="6788102"></td>
-                <td class="money" data-ars="19069061"></td>
-                <td class="money" data-ars="14436558"></td>
-                <td class="money" data-ars="27958309"></td>
-                <td class="money" data-ars="23521450"></td>
-                <td class="money" data-ars="29422354"></td>
-                <td class="money" data-ars="26619357"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td>
               </tr>
             </tbody>
           </table>
@@ -922,31 +808,433 @@
   </div>
 
   <script>
-    const dolar = 1442;
+    (function() {
+      'use strict';
 
-    function formatNumber(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
+      // ============================================================================
+      // 1) DEFINICIÓN DE ESCENARIOS
+      // ============================================================================
+      const scenarios = {
+        Optimista: {
+          pxqPresencial: [
+            { mes: "May", note: "Inicio ciclo presencial", facturacion: 24014180, inicio: 200, continuidad: 0, altas: 200 },
+            { mes: "Jun", note: "", facturacion: 19389756, inicio: 186, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "Pico continuidad", facturacion: 43926514, inicio: 377, continuidad: 147, altas: 230 },
+            { mes: "Ago", note: "", facturacion: 38403379, inicio: 351, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "Pico temporada", facturacion: 63512511, inicio: 542, continuidad: 277, altas: 265 },
+            { mes: "Oct", note: "", facturacion: 57967128, inicio: 504, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 71808471, inicio: 610, continuidad: 398, altas: 212 },
+            { mes: "Dic", note: "", facturacion: 68563179, inicio: 567, continuidad: 0, altas: 0 }
+          ],
+          pxqOnline: [
+            { mes: "May", note: "Inicio ciclo online", facturacion: 10806381, inicio: 90, continuidad: 0, altas: 90 },
+            { mes: "Jun", note: "", facturacion: 8725390, inicio: 84, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "", facturacion: 14903066, inicio: 165, continuidad: 66, altas: 99 },
+            { mes: "Ago", note: "", facturacion: 12712924, inicio: 154, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "", facturacion: 19809932, inicio: 220, continuidad: 121, altas: 99 },
+            { mes: "Oct", note: "", facturacion: 17825154, inicio: 205, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 21719273, inicio: 241, continuidad: 162, altas: 79 },
+            { mes: "Dic", note: "", facturacion: 20496809, inicio: 224, continuidad: 0, altas: 0 }
+          ],
+          gastosMensuales: [
+            { mes: "May", egresos: 12660000, impuestos: 12111168 },
+            { mes: "Jun", egresos: 12892500, impuestos: 8434544 },
+            { mes: "Jul", egresos: 16350813, impuestos: 17648874 },
+            { mes: "Ago", egresos: 16581950, impuestos: 15334891 },
+            { mes: "Sep", egresos: 19926885, impuestos: 24996733 },
+            { mes: "Oct", egresos: 20176153, impuestos: 22737685 },
+            { mes: "Nov", egresos: 23691265, impuestos: 28058323 },
+            { mes: "Dic", egresos: 23990547, impuestos: 26717997 }
+          ],
+          panelControl: {
+            rent:       [39, 20, 39, 34, 43, 40, 42, 41],
+            factPres:   [24014180, 19389756, 43926514, 38403379, 63512511, 57967128, 71808471, 68563179],
+            factOnline: [10806381, 8725390, 14903066, 12712924, 19809932, 17825154, 21719273, 20496809],
+            mentoring:  [2550000, 2550000, 2550000, 2550000, 2550000, 2550000, 2550000, 2550000],
+            cabina:     [3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000],
+            impuestos:  [12111168, 8434544, 17648874, 15334891, 24996733, 22737685, 28058323, 26717997],
+            egresos:    [12660000, 12892500, 16350813, 16581950, 19926885, 20176153, 23691265, 23990547],
+            factBruta:  [40370561, 33665146, 64379580, 56666304, 88872443, 81342282, 99077744, 94609988],
+            utilidad:   [15599393, 6788102, 24829893, 19199463, 38398825, 32878445, 41778156, 38351445]
+          },
+          kpis: {
+            peakPresencial: 71808471,
+            peakOnline: 21719273,
+            peakEgresos: 28058323
+          },
+          barras: {
+            presencial: {
+              promedioAlumnos: { valueLabel: "316 pax", fill: 0.80 },
+              crecimiento: { valueLabel: "+18% anual", fill: 0.68 }
+            },
+            online: {
+              promedioAlumnos: { valueLabel: "151 pax", fill: 0.75 },
+              crecimiento: { valueLabel: "+16% anual", fill: 0.64 }
+            }
+          }
+        },
 
-    function updateCurrency() {
-      const currency = document.getElementById("currencySelector").value;
-      const items = document.querySelectorAll(".money");
+        Moderado: {
+          pxqPresencial: [
+            { mes: "May", note: "Inicio ciclo presencial", facturacion: 18010635, inicio: 150, continuidad: 0, altas: 150 },
+            { mes: "Jun", note: "", facturacion: 14542317, inicio: 140, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "Pico continuidad", facturacion: 32944885, inicio: 283, continuidad: 110, altas: 173 },
+            { mes: "Ago", note: "", facturacion: 28802535, inicio: 263, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "Pico temporada", facturacion: 47634383, inicio: 406, continuidad: 208, altas: 198 },
+            { mes: "Oct", note: "", facturacion: 43475346, inicio: 378, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 53856353, inicio: 457, continuidad: 299, altas: 159 },
+            { mes: "Dic", note: "", facturacion: 51422384, inicio: 425, continuidad: 0, altas: 0 }
+          ],
+          pxqOnline: [
+            { mes: "May", note: "Inicio ciclo online", facturacion: 8404963, inicio: 70, continuidad: 0, altas: 70 },
+            { mes: "Jun", note: "", facturacion: 6786415, inicio: 65, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "", facturacion: 11591274, inicio: 128, continuidad: 51, altas: 77 },
+            { mes: "Ago", note: "", facturacion: 9887830, inicio: 119, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "", facturacion: 15407725, inicio: 171, continuidad: 94, altas: 77 },
+            { mes: "Oct", note: "", facturacion: 13864009, inicio: 159, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 17280304, inicio: 191, continuidad: 126, altas: 65 },
+            { mes: "Dic", note: "", facturacion: 16269065, inicio: 178, continuidad: 0, altas: 0 }
+          ],
+          gastosMensuales: [
+            { mes: "May", egresos: 11820000, impuestos: 9173429 },
+            { mes: "Jun", egresos: 12052500, impuestos: 6398619 },
+            { mes: "Jul", egresos: 14705813, impuestos: 13360848 },
+            { mes: "Ago", egresos: 14936950, impuestos: 11607109 },
+            { mes: "Sep", egresos: 17591885, impuestos: 18912632 },
+            { mes: "Oct", egresos: 17841153, impuestos: 17201806 },
+            { mes: "Nov", egresos: 20761265, impuestos: 21340997 },
+            { mes: "Dic", egresos: 21060547, impuestos: 20307435 }
+          ],
+          panelControl: {
+            rent:       [31, 11, 34, 28, 39, 36, 39, 37],
+            factPres:   [18010635, 14542317, 32944885, 28802535, 47634383, 43475346, 53856353, 51422384],
+            factOnline: [8404963, 6786415, 11591274, 9887830, 15407725, 13864009, 17280304, 16269065],
+            mentoring:  [1912500, 1912500, 1912500, 1912500, 1912500, 1912500, 1912500, 1912500],
+            cabina:     [2250000, 2250000, 2250000, 2250000, 2250000, 2250000, 2250000, 2250000],
+            impuestos:  [9173429, 6398619, 13360848, 11607109, 18912632, 17201806, 21340997, 20307435],
+            egresos:    [11820000, 12052500, 14705813, 14936950, 17591885, 17841153, 20761265, 21060547],
+            factBruta:  [30578098, 25491232, 48698659, 42852865, 67204608, 61501855, 75299157, 71853950],
+            utilidad:   [9584669, 2877612, 16469499, 12146305, 26537590, 22296396, 29034395, 26323468]
+          },
+          kpis: {
+            peakPresencial: 53856353,
+            peakOnline: 17280304,
+            peakEgresos: 21340997
+          },
+          barras: {
+            presencial: {
+              promedioAlumnos: { valueLabel: "237 pax", fill: 0.60 },
+              crecimiento: { valueLabel: "+13% anual", fill: 0.50 }
+            },
+            online: {
+              promedioAlumnos: { valueLabel: "118 pax", fill: 0.59 },
+              crecimiento: { valueLabel: "+12% anual", fill: 0.48 }
+            }
+          }
+        },
 
-      items.forEach(el => {
-        const ars = Number(el.dataset.ars);
-        if (!ars) return;
-
-        if (currency === "ARS") {
-          el.textContent = "$" + formatNumber(ars);
-        } else {
-          const usd = Math.round(ars / dolar); // enteros, sin decimales
-          el.textContent = "USD " + formatNumber(usd);
+        Pesimista: {
+          pxqPresencial: [
+            { mes: "May", note: "Inicio ciclo presencial", facturacion: 12007090, inicio: 100, continuidad: 0, altas: 100 },
+            { mes: "Jun", note: "", facturacion: 9694878, inicio: 93, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "Pico continuidad", facturacion: 21963257, inicio: 189, continuidad: 74, altas: 115 },
+            { mes: "Ago", note: "", facturacion: 19201690, inicio: 175, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "Pico temporada", facturacion: 31756255, inicio: 271, continuidad: 139, altas: 132 },
+            { mes: "Oct", note: "", facturacion: 28983564, inicio: 252, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 35904236, inicio: 305, continuidad: 199, altas: 106 },
+            { mes: "Dic", note: "", facturacion: 34281590, inicio: 284, continuidad: 0, altas: 0 }
+          ],
+          pxqOnline: [
+            { mes: "May", note: "Inicio ciclo online", facturacion: 6603900, inicio: 55, continuidad: 0, altas: 55 },
+            { mes: "Jun", note: "", facturacion: 5332183, inicio: 51, continuidad: 0, altas: 0 },
+            { mes: "Jul", note: "", facturacion: 9107429, inicio: 101, continuidad: 40, altas: 61 },
+            { mes: "Ago", note: "", facturacion: 7769009, inicio: 94, continuidad: 0, altas: 0 },
+            { mes: "Sep", note: "", facturacion: 12106070, inicio: 135, continuidad: 74, altas: 61 },
+            { mes: "Oct", note: "", facturacion: 10893150, inicio: 125, continuidad: 0, altas: 0 },
+            { mes: "Nov", note: "", facturacion: 13272889, inicio: 147, continuidad: 99, altas: 48 },
+            { mes: "Dic", note: "", facturacion: 12525828, inicio: 137, continuidad: 0, altas: 0 }
+          ],
+          gastosMensuales: [
+            { mes: "May", egresos: 10340000, impuestos: 6415797 },
+            { mes: "Jun", egresos: 10572500, impuestos: 4508118 },
+            { mes: "Jul", egresos: 11770813, impuestos: 9321206 },
+            { mes: "Ago", egresos: 12001950, impuestos: 8091210 },
+            { mes: "Sep", egresos: 13336885, impuestos: 13158698 },
+            { mes: "Oct", egresos: 13586153, impuestos: 11963014 },
+            { mes: "Nov", egresos: 15331265, impuestos: 14753137 },
+            { mes: "Dic", egresos: 15630547, impuestos: 14042225 }
+          ],
+          panelControl: {
+            rent:       [22, 0, 29, 23, 37, 34, 37, 35],
+            factPres:   [12007090, 9694878, 21963257, 19201690, 31756255, 28983564, 35904236, 34281590],
+            factOnline: [6603900, 5332183, 9107429, 7769009, 12106070, 10893150, 13272889, 12525828],
+            mentoring:  [1275000, 1275000, 1275000, 1275000, 1275000, 1275000, 1275000, 1275000],
+            cabina:     [1500000, 1500000, 1500000, 1500000, 1500000, 1500000, 1500000, 1500000],
+            impuestos:  [6415797, 4508118, 9321206, 8091210, 13158698, 11963014, 14753137, 14042225],
+            egresos:    [10340000, 10572500, 11770813, 12001950, 13336885, 13586153, 15331265, 15630547],
+            factBruta:  [21385990, 17802061, 33845686, 29745699, 46637325, 42651714, 51952125, 49582417],
+            utilidad:   [4630193, -53557, 9978668, 6877539, 17366742, 14327547, 19092722, 17134645]
+          },
+          kpis: {
+            peakPresencial: 35904236,
+            peakOnline: 13272889,
+            peakEgresos: 15630547
+          },
+          barras: {
+            presencial: {
+              promedioAlumnos: { valueLabel: "158 pax", fill: 0.40 },
+              crecimiento: { valueLabel: "+8% anual", fill: 0.32 }
+            },
+            online: {
+              promedioAlumnos: { valueLabel: "86 pax", fill: 0.43 },
+              crecimiento: { valueLabel: "+9% anual", fill: 0.36 }
+            }
+          }
         }
-      });
-    }
+      };
 
-    document.getElementById("currencySelector").addEventListener("change", updateCurrency);
-    updateCurrency();
+      // ============================================================================
+      // 2) HELPERS DE FORMATO
+      // ============================================================================
+      const dolar = 1442;
+
+      function formatThousands(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function formatARS(value) {
+        return "$" + formatThousands(value);
+      }
+
+      function formatUSD(value) {
+        return "USD " + formatThousands(value);
+      }
+
+      function updateCurrency() {
+        const mode = currencySelect.value;
+        document.querySelectorAll(".money").forEach(el => {
+          const ars = parseInt(el.dataset.ars, 10);
+          if (isNaN(ars)) return;
+          if (mode === "ARS") {
+            el.textContent = formatARS(ars);
+          } else {
+            const usd = Math.round(ars / dolar);
+            el.textContent = formatUSD(usd);
+          }
+        });
+      }
+
+      // ============================================================================
+      // 3) FUNCIONES DE RENDER PXQ
+      // ============================================================================
+      function renderPxQPresencial(scenarioData) {
+        const tbody = document.querySelector("#pxqPresencialBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = "";
+        scenarioData.pxqPresencial.forEach(row => {
+          const tr = document.createElement("tr");
+
+          const tdMes = document.createElement("td");
+          tdMes.textContent = row.mes;
+          if (row.note) tdMes.setAttribute("data-note", row.note);
+          tr.appendChild(tdMes);
+
+          const tdFact = document.createElement("td");
+          tdFact.className = "money";
+          tdFact.dataset.ars = row.facturacion;
+          tr.appendChild(tdFact);
+
+          const tdInicio = document.createElement("td");
+          tdInicio.textContent = row.inicio;
+          tr.appendChild(tdInicio);
+
+          const tdCont = document.createElement("td");
+          tdCont.textContent = row.continuidad;
+          tr.appendChild(tdCont);
+
+          const tdAltas = document.createElement("td");
+          tdAltas.textContent = row.altas;
+          tr.appendChild(tdAltas);
+
+          tbody.appendChild(tr);
+        });
+
+        const kpiEl = document.getElementById("pxqPresencialPeakKpi");
+        if (kpiEl) {
+          kpiEl.className = "card-kpi money";
+          kpiEl.dataset.ars = scenarioData.kpis.peakPresencial;
+        }
+      }
+
+      function renderPxQOnline(scenarioData) {
+        const tbody = document.querySelector("#pxqOnlineBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = "";
+        scenarioData.pxqOnline.forEach(row => {
+          const tr = document.createElement("tr");
+
+          const tdMes = document.createElement("td");
+          tdMes.textContent = row.mes;
+          if (row.note) tdMes.setAttribute("data-note", row.note);
+          tr.appendChild(tdMes);
+
+          const tdFact = document.createElement("td");
+          tdFact.className = "money";
+          tdFact.dataset.ars = row.facturacion;
+          tr.appendChild(tdFact);
+
+          const tdInicio = document.createElement("td");
+          tdInicio.textContent = row.inicio;
+          tr.appendChild(tdInicio);
+
+          const tdCont = document.createElement("td");
+          tdCont.textContent = row.continuidad;
+          tr.appendChild(tdCont);
+
+          const tdAltas = document.createElement("td");
+          tdAltas.textContent = row.altas;
+          tr.appendChild(tdAltas);
+
+          tbody.appendChild(tr);
+        });
+
+        const kpiEl = document.getElementById("pxqOnlinePeakKpi");
+        if (kpiEl) {
+          kpiEl.className = "card-kpi money";
+          kpiEl.dataset.ars = scenarioData.kpis.peakOnline;
+        }
+      }
+
+      // ============================================================================
+      // 4) FUNCIONES DE RENDER GASTOS
+      // ============================================================================
+      function renderGastosMensuales(scenarioData) {
+        const tbody = document.querySelector("#gastosMensualesBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = "";
+        scenarioData.gastosMensuales.forEach(row => {
+          const tr = document.createElement("tr");
+
+          const tdMes = document.createElement("td");
+          tdMes.textContent = row.mes;
+          tr.appendChild(tdMes);
+
+          const tdEgresos = document.createElement("td");
+          tdEgresos.className = "money";
+          tdEgresos.dataset.ars = row.egresos + row.impuestos;
+          tr.appendChild(tdEgresos);
+
+          const tdImpuestos = document.createElement("td");
+          tdImpuestos.className = "money";
+          tdImpuestos.dataset.ars = row.impuestos;
+          tr.appendChild(tdImpuestos);
+
+          tbody.appendChild(tr);
+        });
+
+        const kpiEl = document.getElementById("egresosPeakKpi");
+        if (kpiEl) {
+          kpiEl.className = "card-kpi money";
+          kpiEl.dataset.ars = scenarioData.kpis.peakEgresos;
+        }
+      }
+
+      // ============================================================================
+      // 5) FUNCIONES DE RENDER PANEL DE CONTROL
+      // ============================================================================
+      function renderPanelControl(scenarioData) {
+        const pc = scenarioData.panelControl;
+
+        const rentCells = document.querySelectorAll(".pc-rent");
+        pc.rent.forEach((val, idx) => {
+          if (rentCells[idx]) rentCells[idx].textContent = val + "%";
+        });
+
+        function applyMoneyRow(arr, cssClass) {
+          const cells = document.querySelectorAll("." + cssClass);
+          arr.forEach((val, idx) => {
+            if (cells[idx]) {
+              cells[idx].dataset.ars = val;
+            }
+          });
+        }
+
+        applyMoneyRow(pc.factPres, "pc-fact-pres");
+        applyMoneyRow(pc.factOnline, "pc-fact-online");
+        applyMoneyRow(pc.mentoring, "pc-mentoring");
+        applyMoneyRow(pc.cabina, "pc-cabina");
+        applyMoneyRow(pc.impuestos, "pc-impuestos");
+        applyMoneyRow(pc.egresos, "pc-egresos");
+        applyMoneyRow(pc.factBruta, "pc-fact-bruta");
+        applyMoneyRow(pc.utilidad, "pc-utilidad");
+      }
+
+      // ============================================================================
+      // 6) FUNCIONES DE RENDER BARRAS PXQ
+      // ============================================================================
+      function renderBarrasPxQ(scenarioData) {
+        const barras = scenarioData.barras;
+
+        const presPromedioFill = document.getElementById("barPresencialPromedioFill");
+        const presPromedioValue = document.getElementById("barPresencialPromedioValue");
+        if (presPromedioFill) presPromedioFill.style.setProperty("--fill", barras.presencial.promedioAlumnos.fill);
+        if (presPromedioValue) presPromedioValue.textContent = barras.presencial.promedioAlumnos.valueLabel;
+
+        const presCrecimientoFill = document.getElementById("barPresencialCrecimientoFill");
+        const presCrecimientoValue = document.getElementById("barPresencialCrecimientoValue");
+        if (presCrecimientoFill) presCrecimientoFill.style.setProperty("--fill", barras.presencial.crecimiento.fill);
+        if (presCrecimientoValue) presCrecimientoValue.textContent = barras.presencial.crecimiento.valueLabel;
+
+        const onlinePromedioFill = document.getElementById("barOnlinePromedioFill");
+        const onlinePromedioValue = document.getElementById("barOnlinePromedioValue");
+        if (onlinePromedioFill) onlinePromedioFill.style.setProperty("--fill", barras.online.promedioAlumnos.fill);
+        if (onlinePromedioValue) onlinePromedioValue.textContent = barras.online.promedioAlumnos.valueLabel;
+
+        const onlineCrecimientoFill = document.getElementById("barOnlineCrecimientoFill");
+        const onlineCrecimientoValue = document.getElementById("barOnlineCrecimientoValue");
+        if (onlineCrecimientoFill) onlineCrecimientoFill.style.setProperty("--fill", barras.online.crecimiento.fill);
+        if (onlineCrecimientoValue) onlineCrecimientoValue.textContent = barras.online.crecimiento.valueLabel;
+      }
+
+      // ============================================================================
+      // 7) ORQUESTADOR DE ESCENARIO
+      // ============================================================================
+      function renderScenario(scenarioName) {
+        const data = scenarios[scenarioName];
+        if (!data) {
+          console.error("Escenario no encontrado:", scenarioName);
+          return;
+        }
+
+        renderPxQPresencial(data);
+        renderPxQOnline(data);
+        renderGastosMensuales(data);
+        renderPanelControl(data);
+        renderBarrasPxQ(data);
+
+        updateCurrency();
+      }
+
+      // ============================================================================
+      // 8) EVENTOS E INICIALIZACIÓN
+      // ============================================================================
+      const scenarioSelect = document.getElementById("scenarioSelect");
+      const currencySelect = document.getElementById("currencySelect");
+
+      scenarioSelect.addEventListener("change", () => {
+        renderScenario(scenarioSelect.value);
+      });
+
+      currencySelect.addEventListener("change", () => {
+        updateCurrency();
+      });
+
+      renderScenario("Optimista");
+    })();
   </script>
 </body>
 </html>
+

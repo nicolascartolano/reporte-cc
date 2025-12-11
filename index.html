@@ -38,7 +38,7 @@
     }
 
     .dashboard {
-      max-width: 1280px;
+      max-width: 1480px;
       margin: 0 auto 80px auto;
     }
 
@@ -96,14 +96,13 @@
       color: var(--text-main);
     }
 
-    /* Barra de controles */
     .controls {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .controls-group {
@@ -128,6 +127,122 @@
       padding: 6px 10px;
       font-size: 12px;
       outline: none;
+    }
+
+    .custom-controls {
+      display: none;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(255,41,117,0.08), rgba(0,0,0,0.9));
+      box-shadow: 0 18px 32px rgba(0,0,0,0.5);
+    }
+
+    .custom-controls-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .custom-controls-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .custom-controls-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    .custom-controls-note strong {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .custom-controls-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(53,208,127,0.5);
+      color: var(--success);
+      background: rgba(53,208,127,0.08);
+      white-space: nowrap;
+    }
+
+    .custom-controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .custom-control {
+      flex: 1;
+      min-width: 210px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .custom-control-label {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .custom-control-label span.value {
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .custom-control input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background-color: rgba(255,255,255,0.12);
+      background-image: linear-gradient(90deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
+      background-repeat: no-repeat;
+      background-size: var(--fill, 0%) 100%;
+      outline: none;
+    }
+
+    .custom-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
+      border: 2px solid #000;
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    .custom-control input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
+      border: 2px solid #000;
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    .custom-control input[type="range"]::-moz-range-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
     }
 
     section {
@@ -161,8 +276,20 @@
       gap: 18px;
     }
 
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 1200px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 900px) {
-      .grid-2 {
+      .grid-2, .grid-3 {
         grid-template-columns: minmax(0, 1fr);
       }
       header {
@@ -279,7 +406,6 @@
       border-bottom: none;
     }
 
-    /* PxQ tablas con PAX */
     .table-pxq th:nth-child(1) { width: 16%; }
     .table-pxq th:nth-child(2) { width: 26%; }
     .table-pxq th:nth-child(3),
@@ -293,7 +419,6 @@
       color: var(--text-soft);
     }
 
-    /* Tabla egresos compacta */
     .compact-table {
       table-layout: fixed;
     }
@@ -304,7 +429,6 @@
     .compact-table th:nth-child(3),
     .compact-table td:nth-child(3) { width: 34%; }
 
-    /* Tooltip usando data-note */
     td[data-note] {
       position: relative;
       cursor: help;
@@ -335,7 +459,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Barras dinámicas */
     .bar-row {
       margin-top: 10px;
       display: flex;
@@ -368,7 +491,6 @@
       white-space: nowrap;
     }
 
-    /* Panel de control tabla */
     .panel-control.card {
       margin-top: 4px;
     }
@@ -376,7 +498,7 @@
     .panel-control table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 12px;
+      font-size: 11px;
       margin-top: 10px;
       table-layout: fixed;
     }
@@ -384,18 +506,17 @@
     .panel-control th,
     .panel-control td {
       text-align: center;
-      padding: 7px 4px;
+      padding: 6px 3px;
     }
 
     .panel-control thead tr.month-row th {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: .12em;
       color: var(--text-soft);
-      padding: 8px 6px;
+      padding: 7px 4px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
-      background:
-        linear-gradient(90deg, rgba(255,41,117,0.25), rgba(255,140,66,0.16), rgba(246,196,83,0.18));
+      background: linear-gradient(90deg, rgba(255,41,117,0.25), rgba(255,140,66,0.16), rgba(246,196,83,0.18));
     }
 
     .panel-control tbody tr:nth-child(odd) {
@@ -429,7 +550,6 @@
 
 <body>
   <div class="dashboard">
-    <!-- ================= HEADER ================= -->
     <header>
       <div style="display:flex; align-items:center; gap:16px;">
         <div class="logo-mark"></div>
@@ -445,7 +565,6 @@
       </nav>
     </header>
 
-    <!-- ================= CONTROLES GLOBALES ================= -->
     <div class="controls">
       <div class="controls-group">
         <label for="scenarioSelect">Escenario</label>
@@ -453,6 +572,7 @@
           <option value="Optimista" selected>Optimista</option>
           <option value="Moderado">Moderado</option>
           <option value="Pesimista">Pesimista</option>
+          <option value="Custom">Custom</option>
         </select>
       </div>
       <div class="controls-group">
@@ -464,22 +584,56 @@
       </div>
     </div>
 
-    <!-- ===================== PxQ ===================== -->
-    <section id="pxq">
-      <h2>PxQ 2026 <span class="badge">Presencial &amp; Online</span></h2>
+    <div id="customControls" class="custom-controls">
+      <div class="custom-controls-header">
+        <div>
+          <div class="custom-controls-title">Escenario Custom · Ajustes rápidos</div>
+          <div class="custom-controls-note">
+            En modo Custom simulás cambios en volumen de altas, precios y egresos en tiempo real sobre la base del escenario <strong>Moderado</strong>.
+          </div>
+        </div>
+        <div class="custom-controls-tag">What if · On the fly</div>
+      </div>
 
-      <div class="grid-2">
-        <!-- PRESENCIAL -->
+      <div class="custom-controls-row">
+        <div class="custom-control">
+          <div class="custom-control-label">
+            <span>% crecimiento en altas</span>
+            <span class="value" id="customAltasLabel">0%</span>
+          </div>
+          <input type="range" id="customAltas" min="-40" max="40" value="0" step="5" />
+        </div>
+        <div class="custom-control">
+          <div class="custom-control-label">
+            <span>% aumento de precios</span>
+            <span class="value" id="customPreciosLabel">0%</span>
+          </div>
+          <input type="range" id="customPrecios" min="-40" max="40" value="0" step="5" />
+        </div>
+        <div class="custom-control">
+          <div class="custom-control-label">
+            <span>% variación en egresos</span>
+            <span class="value" id="customEgresosLabel">0%</span>
+          </div>
+          <input type="range" id="customEgresos" min="-40" max="40" value="0" step="5" />
+        </div>
+      </div>
+    </div>
+
+    <section id="pxq">
+      <h2>PxQ 2026 <span class="badge">Presencial · Online · OnDemand</span></h2>
+
+      <div class="grid-3">
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
-                <div class="card-title">Facturación proyectada · Presencial</div>
-                <div class="card-sub">Totales mensuales netos de IVA – 2026</div>
+                <div class="card-title">Presencial</div>
+                <div class="card-sub">Neto de IVA</div>
               </div>
               <div>
-                <div class="card-kpi money" id="pxqPresencialPeakKpi">$55.403.054</div>
-                <div class="card-sub">Pico mensual estimado</div>
+                <div class="card-kpi money" id="pxqPresencialPeakKpi">$0</div>
+                <div class="card-sub">Pico de Facturación</div>
               </div>
             </div>
 
@@ -487,46 +641,43 @@
               <thead>
                 <tr>
                   <th>Mes</th>
-                  <th>Facturación</th>
+                  <th>Fact</th>
                   <th>Inicio</th>
-                  <th>Continuidad</th>
+                  <th>Cont</th>
                   <th>Altas</th>
                 </tr>
               </thead>
-              <tbody id="pxqPresencialBody">
-                <!-- Filas generadas por JavaScript según escenario -->
-              </tbody>
+              <tbody id="pxqPresencialBody"></tbody>
             </table>
 
             <div class="bar-row">
-              <div class="bar-label">Promedio anual alumnos</div>
+              <div class="bar-label">Prom. pax</div>
               <div class="bar-shell">
-                <div class="bar-fill" id="barPresencialPromedioFill" style="--fill:0.80;"></div>
+                <div class="bar-fill" id="barPresencialPromedioFill"></div>
               </div>
-              <div class="bar-value" id="barPresencialPromedioValue">316 pax</div>
+              <div class="bar-value" id="barPresencialPromedioValue">0</div>
             </div>
 
             <div class="bar-row">
-              <div class="bar-label">Crecimiento inscripciones</div>
+              <div class="bar-label">Crec.</div>
               <div class="bar-shell">
-                <div class="bar-fill" id="barPresencialCrecimientoFill" style="--fill:0.68;"></div>
+                <div class="bar-fill" id="barPresencialCrecimientoFill"></div>
               </div>
-              <div class="bar-value" id="barPresencialCrecimientoValue">+18% anual</div>
+              <div class="bar-value" id="barPresencialCrecimientoValue">0%</div>
             </div>
           </div>
         </div>
 
-        <!-- ONLINE -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
-                <div class="card-title">Facturación proyectada · Online</div>
-                <div class="card-sub">Totales mensuales netos de IVA – 2026</div>
+                <div class="card-title">Online</div>
+                <div class="card-sub">Neto de IVA</div>
               </div>
               <div>
-                <div class="card-kpi money" id="pxqOnlinePeakKpi">$20.473.544</div>
-                <div class="card-sub">Pico mensual estimado</div>
+                <div class="card-kpi money" id="pxqOnlinePeakKpi">$0</div>
+                <div class="card-sub">Pico de Facturación</div>
               </div>
             </div>
 
@@ -534,43 +685,83 @@
               <thead>
                 <tr>
                   <th>Mes</th>
-                  <th>Facturación</th>
+                  <th>Fact</th>
                   <th>Inicio</th>
-                  <th>Continuidad</th>
+                  <th>Cont</th>
                   <th>Altas</th>
                 </tr>
               </thead>
-              <tbody id="pxqOnlineBody">
-                <!-- Filas generadas por JavaScript según escenario -->
-              </tbody>
+              <tbody id="pxqOnlineBody"></tbody>
             </table>
 
             <div class="bar-row">
-              <div class="bar-label">Promedio anual alumnos</div>
+              <div class="bar-label">Prom. pax</div>
               <div class="bar-shell">
-                <div class="bar-fill" id="barOnlinePromedioFill" style="--fill:0.75;"></div>
+                <div class="bar-fill" id="barOnlinePromedioFill"></div>
               </div>
-              <div class="bar-value" id="barOnlinePromedioValue">151 pax</div>
+              <div class="bar-value" id="barOnlinePromedioValue">0</div>
             </div>
 
             <div class="bar-row">
-              <div class="bar-label">Crecimiento inscripciones</div>
+              <div class="bar-label">Crec.</div>
               <div class="bar-shell">
-                <div class="bar-fill" id="barOnlineCrecimientoFill" style="--fill:0.64;"></div>
+                <div class="bar-fill" id="barOnlineCrecimientoFill"></div>
               </div>
-              <div class="bar-value" id="barOnlineCrecimientoValue">+16% anual</div>
+              <div class="bar-value" id="barOnlineCrecimientoValue">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <div class="card-title">OnDemand</div>
+                <div class="card-sub">Neto de IVA</div>
+              </div>
+              <div>
+                <div class="card-kpi money" id="pxqOnDemandPeakKpi">$0</div>
+                <div class="card-sub">Pico de Facturación</div>
+              </div>
+            </div>
+
+            <table class="table-pxq">
+              <thead>
+                <tr>
+                  <th>Mes</th>
+                  <th>Fact</th>
+                  <th>Inicio</th>
+                  <th>Cont</th>
+                  <th>Altas</th>
+                </tr>
+              </thead>
+              <tbody id="pxqOnDemandBody"></tbody>
+            </table>
+
+            <div class="bar-row">
+              <div class="bar-label">Prom. pax</div>
+              <div class="bar-shell">
+                <div class="bar-fill" id="barOnDemandPromedioFill"></div>
+              </div>
+              <div class="bar-value" id="barOnDemandPromedioValue">0</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">Crec.</div>
+              <div class="bar-shell">
+                <div class="bar-fill" id="barOnDemandCrecimientoFill"></div>
+              </div>
+              <div class="bar-value" id="barOnDemandCrecimientoValue">0%</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== GASTOS ===================== -->
     <section id="gastos">
       <h2>Gastos Operativos <span class="badge">Staff &amp; Servicios</span></h2>
 
       <div class="grid-2">
-        <!-- EGRESOS MENSUALES -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
@@ -579,7 +770,7 @@
                 <div class="card-sub">Staff, alquiler, marketing, licencias e impuestos</div>
               </div>
               <div>
-                <div class="card-kpi money" id="egresosPeakKpi">$23.906.168</div>
+                <div class="card-kpi money" id="egresosPeakKpi">$0</div>
                 <div class="card-sub">Máximo proyectado</div>
               </div>
             </div>
@@ -592,14 +783,11 @@
                   <th>Impuestos</th>
                 </tr>
               </thead>
-              <tbody id="gastosMensualesBody">
-                <!-- Filas generadas por JavaScript según escenario -->
-              </tbody>
+              <tbody id="gastosMensualesBody"></tbody>
             </table>
           </div>
         </div>
 
-        <!-- ESTRUCTURA DE COSTOS -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
@@ -621,27 +809,27 @@
               </thead>
               <tbody>
                 <tr>
-                  <td data-note="Horas dictadas por módulo">Profesores (DJ + Produ)</td>
+                  <td data-note="Horas dictadas por módulo">Profesores</td>
                   <td>30–35%</td>
                 </tr>
                 <tr>
-                  <td data-note="Front desk, comercial, coordinación">Staff administrativo &amp; comercial</td>
+                  <td data-note="Front desk, comercial">Staff admin</td>
                   <td>15–20%</td>
                 </tr>
                 <tr>
-                  <td data-note="Estudio, cabinas, equipamiento">Alquiler &amp; infraestructura</td>
+                  <td data-note="Estudio, cabinas">Alquiler</td>
                   <td>10–15%</td>
                 </tr>
                 <tr>
-                  <td data-note="Ads, contenidos, creatividades">Marketing &amp; performance</td>
+                  <td data-note="Ads, contenidos">Marketing</td>
                   <td>10–15%</td>
                 </tr>
                 <tr>
-                  <td data-note="Moodle, DAWs, herramientas">Licencias &amp; softwares</td>
+                  <td data-note="Moodle, DAWs">Licencias</td>
                   <td>3–5%</td>
                 </tr>
                 <tr>
-                  <td data-note="IVA, ganancias, cargas sociales">Impuestos</td>
+                  <td data-note="IVA, ganancias">Impuestos</td>
                   <td>25–30%</td>
                 </tr>
               </tbody>
@@ -659,7 +847,6 @@
       </div>
     </section>
 
-    <!-- ===================== PANEL DE CONTROL ===================== -->
     <section id="panel-control">
       <h2>Panel de Control 2026 <span class="badge">Rentabilidad &amp; Utilidad</span></h2>
 
@@ -690,7 +877,7 @@
 
             <tbody>
               <tr class="metric-ingreso">
-                <td>Rentabilidad %</td>
+                <td>Rent %</td>
                 <td class="pc-rent"></td>
                 <td class="pc-rent"></td>
                 <td class="pc-rent"></td>
@@ -723,6 +910,18 @@
                 <td class="money pc-fact-online"></td>
                 <td class="money pc-fact-online"></td>
                 <td class="money pc-fact-online"></td>
+              </tr>
+
+              <tr>
+                <td>Fact. OnDemand</td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td>
               </tr>
 
               <tr>
@@ -774,7 +973,7 @@
               </tr>
 
               <tr class="money-strong">
-                <td>Facturación Bruta</td>
+                <td>Fact Bruta</td>
                 <td class="money pc-fact-bruta"></td>
                 <td class="money pc-fact-bruta"></td>
                 <td class="money pc-fact-bruta"></td>
@@ -808,433 +1007,701 @@
   </div>
 
   <script>
-    (function() {
-      'use strict';
+  (function() {
+    'use strict';
 
-      // ============================================================================
-      // 1) DEFINICIÓN DE ESCENARIOS
-      // ============================================================================
-      const scenarios = {
-        Optimista: {
-          pxqPresencial: [
-            { mes: "May", note: "Inicio ciclo presencial", facturacion: 24014180, inicio: 200, continuidad: 0, altas: 200 },
-            { mes: "Jun", note: "", facturacion: 19389756, inicio: 186, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "Pico continuidad", facturacion: 43926514, inicio: 377, continuidad: 147, altas: 230 },
-            { mes: "Ago", note: "", facturacion: 38403379, inicio: 351, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "Pico temporada", facturacion: 63512511, inicio: 542, continuidad: 277, altas: 265 },
-            { mes: "Oct", note: "", facturacion: 57967128, inicio: 504, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 71808471, inicio: 610, continuidad: 398, altas: 212 },
-            { mes: "Dic", note: "", facturacion: 68563179, inicio: 567, continuidad: 0, altas: 0 }
-          ],
-          pxqOnline: [
-            { mes: "May", note: "Inicio ciclo online", facturacion: 10806381, inicio: 90, continuidad: 0, altas: 90 },
-            { mes: "Jun", note: "", facturacion: 8725390, inicio: 84, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "", facturacion: 14903066, inicio: 165, continuidad: 66, altas: 99 },
-            { mes: "Ago", note: "", facturacion: 12712924, inicio: 154, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "", facturacion: 19809932, inicio: 220, continuidad: 121, altas: 99 },
-            { mes: "Oct", note: "", facturacion: 17825154, inicio: 205, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 21719273, inicio: 241, continuidad: 162, altas: 79 },
-            { mes: "Dic", note: "", facturacion: 20496809, inicio: 224, continuidad: 0, altas: 0 }
-          ],
-          gastosMensuales: [
-            { mes: "May", egresos: 12660000, impuestos: 12111168 },
-            { mes: "Jun", egresos: 12892500, impuestos: 8434544 },
-            { mes: "Jul", egresos: 16350813, impuestos: 17648874 },
-            { mes: "Ago", egresos: 16581950, impuestos: 15334891 },
-            { mes: "Sep", egresos: 19926885, impuestos: 24996733 },
-            { mes: "Oct", egresos: 20176153, impuestos: 22737685 },
-            { mes: "Nov", egresos: 23691265, impuestos: 28058323 },
-            { mes: "Dic", egresos: 23990547, impuestos: 26717997 }
-          ],
-          panelControl: {
-            rent:       [39, 20, 39, 34, 43, 40, 42, 41],
-            factPres:   [24014180, 19389756, 43926514, 38403379, 63512511, 57967128, 71808471, 68563179],
-            factOnline: [10806381, 8725390, 14903066, 12712924, 19809932, 17825154, 21719273, 20496809],
-            mentoring:  [2550000, 2550000, 2550000, 2550000, 2550000, 2550000, 2550000, 2550000],
-            cabina:     [3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000],
-            impuestos:  [12111168, 8434544, 17648874, 15334891, 24996733, 22737685, 28058323, 26717997],
-            egresos:    [12660000, 12892500, 16350813, 16581950, 19926885, 20176153, 23691265, 23990547],
-            factBruta:  [40370561, 33665146, 64379580, 56666304, 88872443, 81342282, 99077744, 94609988],
-            utilidad:   [15599393, 6788102, 24829893, 19199463, 38398825, 32878445, 41778156, 38351445]
-          },
-          kpis: {
-            peakPresencial: 71808471,
-            peakOnline: 21719273,
-            peakEgresos: 28058323
-          },
-          barras: {
-            presencial: {
-              promedioAlumnos: { valueLabel: "316 pax", fill: 0.80 },
-              crecimiento: { valueLabel: "+18% anual", fill: 0.68 }
-            },
-            online: {
-              promedioAlumnos: { valueLabel: "151 pax", fill: 0.75 },
-              crecimiento: { valueLabel: "+16% anual", fill: 0.64 }
-            }
-          }
+    // ============================================================================
+    // 1) CONSTANTES Y ESCENARIOS
+    // ============================================================================
+
+    const dolar = 1442;
+
+    const scenarios = {
+      Optimista: {
+        pxqPresencial: [
+          {mes:"May",note:"Inicio ciclo",facturacion:24014180,inicio:200,continuidad:0,altas:200},
+          {mes:"Jun",note:"",facturacion:19389756,inicio:186,continuidad:0,altas:0},
+          {mes:"Jul",note:"Pico continuidad",facturacion:43926514,inicio:377,continuidad:147,altas:230},
+          {mes:"Ago",note:"",facturacion:38403379,inicio:351,continuidad:0,altas:0},
+          {mes:"Sep",note:"Pico temporada",facturacion:63512511,inicio:542,continuidad:277,altas:265},
+          {mes:"Oct",note:"",facturacion:57967128,inicio:504,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:71808471,inicio:610,continuidad:398,altas:212},
+          {mes:"Dic",note:"",facturacion:68563179,inicio:567,continuidad:0,altas:0}
+        ],
+        pxqOnline: [
+          {mes:"May",note:"Inicio ciclo",facturacion:10806381,inicio:90,continuidad:0,altas:90},
+          {mes:"Jun",note:"",facturacion:8725390,inicio:84,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:14903066,inicio:165,continuidad:66,altas:99},
+          {mes:"Ago",note:"",facturacion:12712924,inicio:154,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:19809932,inicio:220,continuidad:121,altas:99},
+          {mes:"Oct",note:"",facturacion:17825154,inicio:205,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:21719273,inicio:241,continuidad:162,altas:79},
+          {mes:"Dic",note:"",facturacion:20496809,inicio:224,continuidad:0,altas:0}
+        ],
+        pxqOnDemand: [
+          {mes:"May",note:"",facturacion:5482080,inicio:80,continuidad:0,altas:80},
+          {mes:"Jun",note:"",facturacion:5098334,inicio:74,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:10060521,inicio:147,continuidad:59,altas:88},
+          {mes:"Ago",note:"",facturacion:9590192,inicio:137,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:13762092,inicio:196,continuidad:108,altas:88},
+          {mes:"Oct",note:"",facturacion:13446682,inicio:182,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:15438801,inicio:214,continuidad:144,altas:70},
+          {mes:"Dic",note:"",facturacion:15462087,inicio:199,continuidad:0,altas:0}
+        ],
+        gastosMensuales: [
+          {mes:"May",egresos:12660000,impuestos:13755792},
+          {mes:"Jun",egresos:12892500,impuestos:11629044},
+          {mes:"Jul",egresos:16350813,impuestos:22332030},
+          {mes:"Ago",egresos:16581950,impuestos:19876949},
+          {mes:"Sep",egresos:19926885,impuestos:30790360},
+          {mes:"Oct",egresos:20176153,impuestos:28436689},
+          {mes:"Nov",egresos:23691265,impuestos:34354963},
+          {mes:"Dic",egresos:23990547,impuestos:33021623}
+        ],
+        panelControl: {
+          rent:[42,37,48,45,51,49,49,48],
+          factPres:[24014180,19389756,43926514,38403379,63512511,57967128,71808471,68563179],
+          factOnline:[10806381,8725390,14903066,12712924,19809932,17825154,21719273,20496809],
+          factOnDemand:[5482080,5098334,10060521,9590192,13762092,13446682,15438801,15462087],
+          mentoring:[2550000,2550000,2550000,2550000,2550000,2550000,2550000,2550000],
+          cabina:[3000000,3000000,3000000,3000000,3000000,3000000,3000000,3000000],
+          impuestos:[13755792,11629044,22332030,19876949,30790360,28436689,34354963,33021623],
+          egresos:[12660000,12892500,16350813,16581950,19926885,20176153,23691265,23990547],
+          factBruta:[45852641,38763481,74440101,66256496,102634535,94788964,114516545,110072075],
+          utilidad:[19436849,14241936,35757258,29797597,51917289,46176122,56470316,53059906]
         },
+        kpis:{peakPresencial:71808471,peakOnline:21719273,peakOnDemand:15462087,peakEgresos:34354963},
+        barras:{
+          presencial:{promedioAlumnos:{valueLabel:"316 pax",fill:0.80},crecimiento:{valueLabel:"+18% anual",fill:0.68}},
+          online:{promedioAlumnos:{valueLabel:"151 pax",fill:0.75},crecimiento:{valueLabel:"+16% anual",fill:0.64}},
+          onDemand:{promedioAlumnos:{valueLabel:"125 pax",fill:0.70},crecimiento:{valueLabel:"+14% anual",fill:0.60}}
+        }
+      },
 
-        Moderado: {
-          pxqPresencial: [
-            { mes: "May", note: "Inicio ciclo presencial", facturacion: 18010635, inicio: 150, continuidad: 0, altas: 150 },
-            { mes: "Jun", note: "", facturacion: 14542317, inicio: 140, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "Pico continuidad", facturacion: 32944885, inicio: 283, continuidad: 110, altas: 173 },
-            { mes: "Ago", note: "", facturacion: 28802535, inicio: 263, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "Pico temporada", facturacion: 47634383, inicio: 406, continuidad: 208, altas: 198 },
-            { mes: "Oct", note: "", facturacion: 43475346, inicio: 378, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 53856353, inicio: 457, continuidad: 299, altas: 159 },
-            { mes: "Dic", note: "", facturacion: 51422384, inicio: 425, continuidad: 0, altas: 0 }
-          ],
-          pxqOnline: [
-            { mes: "May", note: "Inicio ciclo online", facturacion: 8404963, inicio: 70, continuidad: 0, altas: 70 },
-            { mes: "Jun", note: "", facturacion: 6786415, inicio: 65, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "", facturacion: 11591274, inicio: 128, continuidad: 51, altas: 77 },
-            { mes: "Ago", note: "", facturacion: 9887830, inicio: 119, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "", facturacion: 15407725, inicio: 171, continuidad: 94, altas: 77 },
-            { mes: "Oct", note: "", facturacion: 13864009, inicio: 159, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 17280304, inicio: 191, continuidad: 126, altas: 65 },
-            { mes: "Dic", note: "", facturacion: 16269065, inicio: 178, continuidad: 0, altas: 0 }
-          ],
-          gastosMensuales: [
-            { mes: "May", egresos: 11820000, impuestos: 9173429 },
-            { mes: "Jun", egresos: 12052500, impuestos: 6398619 },
-            { mes: "Jul", egresos: 14705813, impuestos: 13360848 },
-            { mes: "Ago", egresos: 14936950, impuestos: 11607109 },
-            { mes: "Sep", egresos: 17591885, impuestos: 18912632 },
-            { mes: "Oct", egresos: 17841153, impuestos: 17201806 },
-            { mes: "Nov", egresos: 20761265, impuestos: 21340997 },
-            { mes: "Dic", egresos: 21060547, impuestos: 20307435 }
-          ],
-          panelControl: {
-            rent:       [31, 11, 34, 28, 39, 36, 39, 37],
-            factPres:   [18010635, 14542317, 32944885, 28802535, 47634383, 43475346, 53856353, 51422384],
-            factOnline: [8404963, 6786415, 11591274, 9887830, 15407725, 13864009, 17280304, 16269065],
-            mentoring:  [1912500, 1912500, 1912500, 1912500, 1912500, 1912500, 1912500, 1912500],
-            cabina:     [2250000, 2250000, 2250000, 2250000, 2250000, 2250000, 2250000, 2250000],
-            impuestos:  [9173429, 6398619, 13360848, 11607109, 18912632, 17201806, 21340997, 20307435],
-            egresos:    [11820000, 12052500, 14705813, 14936950, 17591885, 17841153, 20761265, 21060547],
-            factBruta:  [30578098, 25491232, 48698659, 42852865, 67204608, 61501855, 75299157, 71853950],
-            utilidad:   [9584669, 2877612, 16469499, 12146305, 26537590, 22296396, 29034395, 26323468]
-          },
-          kpis: {
-            peakPresencial: 53856353,
-            peakOnline: 17280304,
-            peakEgresos: 21340997
-          },
-          barras: {
-            presencial: {
-              promedioAlumnos: { valueLabel: "237 pax", fill: 0.60 },
-              crecimiento: { valueLabel: "+13% anual", fill: 0.50 }
-            },
-            online: {
-              promedioAlumnos: { valueLabel: "118 pax", fill: 0.59 },
-              crecimiento: { valueLabel: "+12% anual", fill: 0.48 }
-            }
-          }
+      Moderado: {
+        pxqPresencial: [
+          {mes:"May",note:"Inicio ciclo",facturacion:18010635,inicio:150,continuidad:0,altas:150},
+          {mes:"Jun",note:"",facturacion:14542317,inicio:140,continuidad:0,altas:0},
+          {mes:"Jul",note:"Pico continuidad",facturacion:32944885,inicio:283,continuidad:110,altas:173},
+          {mes:"Ago",note:"",facturacion:28802535,inicio:263,continuidad:0,altas:0},
+          {mes:"Sep",note:"Pico temporada",facturacion:47634383,inicio:406,continuidad:208,altas:198},
+          {mes:"Oct",note:"",facturacion:43475346,inicio:378,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:53856353,inicio:457,continuidad:299,altas:159},
+          {mes:"Dic",note:"",facturacion:51422384,inicio:425,continuidad:0,altas:0}
+        ],
+        pxqOnline: [
+          {mes:"May",note:"Inicio ciclo",facturacion:8404963,inicio:70,continuidad:0,altas:70},
+          {mes:"Jun",note:"",facturacion:6786415,inicio:65,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:11591274,inicio:128,continuidad:51,altas:77},
+          {mes:"Ago",note:"",facturacion:9887830,inicio:119,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:15407725,inicio:171,continuidad:94,altas:77},
+          {mes:"Oct",note:"",facturacion:13864009,inicio:159,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:17280304,inicio:191,continuidad:126,altas:65},
+          {mes:"Dic",note:"",facturacion:16269065,inicio:178,continuidad:0,altas:0}
+        ],
+        pxqOnDemand: [
+          {mes:"May",note:"",facturacion:4111560,inicio:60,continuidad:0,altas:60},
+          {mes:"Jun",note:"",facturacion:3823751,inicio:56,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:7545391,inicio:110,continuidad:44,altas:66},
+          {mes:"Ago",note:"",facturacion:7192644,inicio:102,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:10321569,inicio:147,continuidad:81,altas:66},
+          {mes:"Oct",note:"",facturacion:10085012,inicio:137,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:11579100,inicio:161,continuidad:108,altas:53},
+          {mes:"Dic",note:"",facturacion:11596565,inicio:150,continuidad:0,altas:0}
+        ],
+        gastosMensuales: [
+          {mes:"May",egresos:11820000,impuestos:10406897},
+          {mes:"Jun",egresos:12052500,impuestos:8794495},
+          {mes:"Jul",egresos:14705813,impuestos:16873215},
+          {mes:"Ago",egresos:14936950,impuestos:15013653},
+          {mes:"Sep",egresos:17591885,impuestos:23257853},
+          {mes:"Oct",egresos:17841153,impuestos:21476060},
+          {mes:"Nov",egresos:20761265,impuestos:26063477},
+          {mes:"Dic",egresos:21060547,impuestos:25035154}
+        ],
+        panelControl: {
+          rent:[36,29,44,40,47,45,46,45],
+          factPres:[18010635,14542317,32944885,28802535,47634383,43475346,53856353,51422384],
+          factOnline:[8404963,6786415,11591274,9887830,15407725,13864009,17280304,16269065],
+          factOnDemand:[4111560,3823751,7545391,7192644,10321569,10085012,11579100,11596565],
+          mentoring:[1912500,1912500,1912500,1912500,1912500,1912500,1912500,1912500],
+          cabina:[2250000,2250000,2250000,2250000,2250000,2250000,2250000,2250000],
+          impuestos:[10406897,8794495,16873215,15013653,23257853,21476060,26063477,25035154],
+          egresos:[11820000,12052500,14705813,14936950,17591885,17841153,20761265,21060547],
+          factBruta:[34689658,29314982,56244050,50045508,77526177,71586866,86878258,83450515],
+          utilidad:[12462761,8467988,24665022,20094906,36676439,32269654,40053515,37354813]
         },
-
-        Pesimista: {
-          pxqPresencial: [
-            { mes: "May", note: "Inicio ciclo presencial", facturacion: 12007090, inicio: 100, continuidad: 0, altas: 100 },
-            { mes: "Jun", note: "", facturacion: 9694878, inicio: 93, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "Pico continuidad", facturacion: 21963257, inicio: 189, continuidad: 74, altas: 115 },
-            { mes: "Ago", note: "", facturacion: 19201690, inicio: 175, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "Pico temporada", facturacion: 31756255, inicio: 271, continuidad: 139, altas: 132 },
-            { mes: "Oct", note: "", facturacion: 28983564, inicio: 252, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 35904236, inicio: 305, continuidad: 199, altas: 106 },
-            { mes: "Dic", note: "", facturacion: 34281590, inicio: 284, continuidad: 0, altas: 0 }
-          ],
-          pxqOnline: [
-            { mes: "May", note: "Inicio ciclo online", facturacion: 6603900, inicio: 55, continuidad: 0, altas: 55 },
-            { mes: "Jun", note: "", facturacion: 5332183, inicio: 51, continuidad: 0, altas: 0 },
-            { mes: "Jul", note: "", facturacion: 9107429, inicio: 101, continuidad: 40, altas: 61 },
-            { mes: "Ago", note: "", facturacion: 7769009, inicio: 94, continuidad: 0, altas: 0 },
-            { mes: "Sep", note: "", facturacion: 12106070, inicio: 135, continuidad: 74, altas: 61 },
-            { mes: "Oct", note: "", facturacion: 10893150, inicio: 125, continuidad: 0, altas: 0 },
-            { mes: "Nov", note: "", facturacion: 13272889, inicio: 147, continuidad: 99, altas: 48 },
-            { mes: "Dic", note: "", facturacion: 12525828, inicio: 137, continuidad: 0, altas: 0 }
-          ],
-          gastosMensuales: [
-            { mes: "May", egresos: 10340000, impuestos: 6415797 },
-            { mes: "Jun", egresos: 10572500, impuestos: 4508118 },
-            { mes: "Jul", egresos: 11770813, impuestos: 9321206 },
-            { mes: "Ago", egresos: 12001950, impuestos: 8091210 },
-            { mes: "Sep", egresos: 13336885, impuestos: 13158698 },
-            { mes: "Oct", egresos: 13586153, impuestos: 11963014 },
-            { mes: "Nov", egresos: 15331265, impuestos: 14753137 },
-            { mes: "Dic", egresos: 15630547, impuestos: 14042225 }
-          ],
-          panelControl: {
-            rent:       [22, 0, 29, 23, 37, 34, 37, 35],
-            factPres:   [12007090, 9694878, 21963257, 19201690, 31756255, 28983564, 35904236, 34281590],
-            factOnline: [6603900, 5332183, 9107429, 7769009, 12106070, 10893150, 13272889, 12525828],
-            mentoring:  [1275000, 1275000, 1275000, 1275000, 1275000, 1275000, 1275000, 1275000],
-            cabina:     [1500000, 1500000, 1500000, 1500000, 1500000, 1500000, 1500000, 1500000],
-            impuestos:  [6415797, 4508118, 9321206, 8091210, 13158698, 11963014, 14753137, 14042225],
-            egresos:    [10340000, 10572500, 11770813, 12001950, 13336885, 13586153, 15331265, 15630547],
-            factBruta:  [21385990, 17802061, 33845686, 29745699, 46637325, 42651714, 51952125, 49582417],
-            utilidad:   [4630193, -53557, 9978668, 6877539, 17366742, 14327547, 19092722, 17134645]
-          },
-          kpis: {
-            peakPresencial: 35904236,
-            peakOnline: 13272889,
-            peakEgresos: 15630547
-          },
-          barras: {
-            presencial: {
-              promedioAlumnos: { valueLabel: "158 pax", fill: 0.40 },
-              crecimiento: { valueLabel: "+8% anual", fill: 0.32 }
-            },
-            online: {
-              promedioAlumnos: { valueLabel: "86 pax", fill: 0.43 },
-              crecimiento: { valueLabel: "+9% anual", fill: 0.36 }
-            }
-          }
+        kpis:{peakPresencial:53856353,peakOnline:17280304,peakOnDemand:11596565,peakEgresos:26063477},
+        barras:{
+          presencial:{promedioAlumnos:{valueLabel:"237 pax",fill:0.60},crecimiento:{valueLabel:"+13% anual",fill:0.50}},
+          online:{promedioAlumnos:{valueLabel:"118 pax",fill:0.59},crecimiento:{valueLabel:"+12% anual",fill:0.48}},
+          onDemand:{promedioAlumnos:{valueLabel:"94 pax",fill:0.52},crecimiento:{valueLabel:"+11% anual",fill:0.45}}
         }
-      };
+      },
 
-      // ============================================================================
-      // 2) HELPERS DE FORMATO
-      // ============================================================================
-      const dolar = 1442;
-
-      function formatThousands(n) {
-        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-      }
-
-      function formatARS(value) {
-        return "$" + formatThousands(value);
-      }
-
-      function formatUSD(value) {
-        return "USD " + formatThousands(value);
-      }
-
-      function updateCurrency() {
-        const mode = currencySelect.value;
-        document.querySelectorAll(".money").forEach(el => {
-          const ars = parseInt(el.dataset.ars, 10);
-          if (isNaN(ars)) return;
-          if (mode === "ARS") {
-            el.textContent = formatARS(ars);
-          } else {
-            const usd = Math.round(ars / dolar);
-            el.textContent = formatUSD(usd);
-          }
-        });
-      }
-
-      // ============================================================================
-      // 3) FUNCIONES DE RENDER PXQ
-      // ============================================================================
-      function renderPxQPresencial(scenarioData) {
-        const tbody = document.querySelector("#pxqPresencialBody");
-        if (!tbody) return;
-
-        tbody.innerHTML = "";
-        scenarioData.pxqPresencial.forEach(row => {
-          const tr = document.createElement("tr");
-
-          const tdMes = document.createElement("td");
-          tdMes.textContent = row.mes;
-          if (row.note) tdMes.setAttribute("data-note", row.note);
-          tr.appendChild(tdMes);
-
-          const tdFact = document.createElement("td");
-          tdFact.className = "money";
-          tdFact.dataset.ars = row.facturacion;
-          tr.appendChild(tdFact);
-
-          const tdInicio = document.createElement("td");
-          tdInicio.textContent = row.inicio;
-          tr.appendChild(tdInicio);
-
-          const tdCont = document.createElement("td");
-          tdCont.textContent = row.continuidad;
-          tr.appendChild(tdCont);
-
-          const tdAltas = document.createElement("td");
-          tdAltas.textContent = row.altas;
-          tr.appendChild(tdAltas);
-
-          tbody.appendChild(tr);
-        });
-
-        const kpiEl = document.getElementById("pxqPresencialPeakKpi");
-        if (kpiEl) {
-          kpiEl.className = "card-kpi money";
-          kpiEl.dataset.ars = scenarioData.kpis.peakPresencial;
+      Pesimista: {
+        pxqPresencial: [
+          {mes:"May",note:"Inicio ciclo",facturacion:12007090,inicio:100,continuidad:0,altas:100},
+          {mes:"Jun",note:"",facturacion:9694878,inicio:93,continuidad:0,altas:0},
+          {mes:"Jul",note:"Pico continuidad",facturacion:21963257,inicio:189,continuidad:74,altas:115},
+          {mes:"Ago",note:"",facturacion:19201690,inicio:175,continuidad:0,altas:0},
+          {mes:"Sep",note:"Pico temporada",facturacion:31756255,inicio:271,continuidad:139,altas:132},
+          {mes:"Oct",note:"",facturacion:28983564,inicio:252,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:35904236,inicio:305,continuidad:199,altas:106},
+          {mes:"Dic",note:"",facturacion:34281590,inicio:284,continuidad:0,altas:0}
+        ],
+        pxqOnline: [
+          {mes:"May",note:"Inicio ciclo",facturacion:6603900,inicio:55,continuidad:0,altas:55},
+          {mes:"Jun",note:"",facturacion:5332183,inicio:51,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:9107429,inicio:101,continuidad:40,altas:61},
+          {mes:"Ago",note:"",facturacion:7769009,inicio:94,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:12106070,inicio:135,continuidad:74,altas:61},
+          {mes:"Oct",note:"",facturacion:10893150,inicio:125,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:13272889,inicio:147,continuidad:99,altas:48},
+          {mes:"Dic",note:"",facturacion:12525828,inicio:137,continuidad:0,altas:0}
+        ],
+        pxqOnDemand: [
+          {mes:"May",note:"",facturacion:2741040,inicio:40,continuidad:0,altas:40},
+          {mes:"Jun",note:"",facturacion:2549167,inicio:37,continuidad:0,altas:0},
+          {mes:"Jul",note:"",facturacion:5030261,inicio:73,continuidad:29,altas:44},
+          {mes:"Ago",note:"",facturacion:4795096,inicio:68,continuidad:0,altas:0},
+          {mes:"Sep",note:"",facturacion:6881046,inicio:98,continuidad:54,altas:44},
+          {mes:"Oct",note:"",facturacion:6723341,inicio:91,continuidad:0,altas:0},
+          {mes:"Nov",note:"",facturacion:7719400,inicio:107,continuidad:72,altas:35},
+          {mes:"Dic",note:"",facturacion:7731043,inicio:100,continuidad:0,altas:0}
+        ],
+        gastosMensuales: [
+          {mes:"May",egresos:10340000,impuestos:7238109},
+          {mes:"Jun",egresos:10572500,impuestos:6105368},
+          {mes:"Jul",egresos:11770813,impuestos:11662784},
+          {mes:"Ago",egresos:12001950,impuestos:10362238},
+          {mes:"Sep",egresos:13336885,impuestos:16055511},
+          {mes:"Oct",egresos:13586153,impuestos:14812516},
+          {mes:"Nov",egresos:15331265,impuestos:17901457},
+          {mes:"Dic",egresos:15630547,impuestos:17194038}
+        ],
+        panelControl: {
+          rent:[27,18,40,35,45,42,44,43],
+          factPres:[12007090,9694878,21963257,19201690,31756255,28983564,35904236,34281590],
+          factOnline:[6603900,5332183,9107429,7769009,12106070,10893150,13272889,12525828],
+          factOnDemand:[2741040,2549167,5030261,4795096,6881046,6723341,7719400,7731043],
+          mentoring:[1275000,1275000,1275000,1275000,1275000,1275000,1275000,1275000],
+          cabina:[1500000,1500000,1500000,1500000,1500000,1500000,1500000,1500000],
+          impuestos:[7238109,6105368,11662784,10362238,16055511,14812516,17901457,17194038],
+          egresos:[10340000,10572500,11770813,12001950,13336885,13586153,15331265,15630547],
+          factBruta:[24127030,20351228,38875947,34540795,53518371,49375055,59671525,57313461],
+          utilidad:[6548921,3673360,15442350,12176606,24125974,20976386,26438802,24488876]
+        },
+        kpis:{peakPresencial:35904236,peakOnline:13272889,peakOnDemand:7731043,peakEgresos:17901457},
+        barras:{
+          presencial:{promedioAlumnos:{valueLabel:"158 pax",fill:0.40},crecimiento:{valueLabel:"+8% anual",fill:0.32}},
+          online:{promedioAlumnos:{valueLabel:"86 pax",fill:0.43},crecimiento:{valueLabel:"+9% anual",fill:0.36}},
+          onDemand:{promedioAlumnos:{valueLabel:"64 pax",fill:0.36},crecimiento:{valueLabel:"+7% anual",fill:0.28}}
         }
       }
+    };
 
-      function renderPxQOnline(scenarioData) {
-        const tbody = document.querySelector("#pxqOnlineBody");
-        if (!tbody) return;
+    const customBaseScenarioName = "Moderado";
 
-        tbody.innerHTML = "";
-        scenarioData.pxqOnline.forEach(row => {
-          const tr = document.createElement("tr");
+    // ============================================================================
+    // 2) HELPERS GENERALES
+    // ============================================================================
 
-          const tdMes = document.createElement("td");
-          tdMes.textContent = row.mes;
-          if (row.note) tdMes.setAttribute("data-note", row.note);
-          tr.appendChild(tdMes);
+    function deepClone(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
 
-          const tdFact = document.createElement("td");
-          tdFact.className = "money";
-          tdFact.dataset.ars = row.facturacion;
-          tr.appendChild(tdFact);
+    function formatThousands(n) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
 
-          const tdInicio = document.createElement("td");
-          tdInicio.textContent = row.inicio;
-          tr.appendChild(tdInicio);
+    function formatARS(value) {
+      return "$" + formatThousands(value);
+    }
 
-          const tdCont = document.createElement("td");
-          tdCont.textContent = row.continuidad;
-          tr.appendChild(tdCont);
+    function formatUSD(value) {
+      return "USD " + formatThousands(value);
+    }
 
-          const tdAltas = document.createElement("td");
-          tdAltas.textContent = row.altas;
-          tr.appendChild(tdAltas);
+    // ============================================================================
+    // 3) REFERENCIAS AL DOM
+    // ============================================================================
 
-          tbody.appendChild(tr);
-        });
+    const scenarioSelect = document.getElementById("scenarioSelect");
+    const currencySelect = document.getElementById("currencySelect");
 
-        const kpiEl = document.getElementById("pxqOnlinePeakKpi");
-        if (kpiEl) {
-          kpiEl.className = "card-kpi money";
-          kpiEl.dataset.ars = scenarioData.kpis.peakOnline;
+    const customControlsDiv = document.getElementById("customControls");
+    const customAltasInput = document.getElementById("customAltas");
+    const customPreciosInput = document.getElementById("customPrecios");
+    const customEgresosInput = document.getElementById("customEgresos");
+    const customAltasLabel = document.getElementById("customAltasLabel");
+    const customPreciosLabel = document.getElementById("customPreciosLabel");
+    const customEgresosLabel = document.getElementById("customEgresosLabel");
+
+    function updateRangeFill(input) {
+      const min = parseFloat(input.min) || 0;
+      const max = parseFloat(input.max) || 100;
+      const val = parseFloat(input.value) || 0;
+      const pct = ((val - min) / (max - min)) * 100;
+      input.style.setProperty("--fill", pct + "%");
+    }
+
+    // ============================================================================
+    // 4) MONEDA
+    // ============================================================================
+
+    function updateCurrency() {
+      const mode = currencySelect.value;
+      document.querySelectorAll(".money").forEach(el => {
+        const ars = parseInt(el.dataset.ars, 10);
+        if (isNaN(ars)) return;
+        if (mode === "ARS") {
+          el.textContent = formatARS(ars);
+        } else {
+          const usd = Math.round(ars / dolar);
+          el.textContent = formatUSD(usd);
         }
-      }
+      });
+    }
 
-      // ============================================================================
-      // 4) FUNCIONES DE RENDER GASTOS
-      // ============================================================================
-      function renderGastosMensuales(scenarioData) {
-        const tbody = document.querySelector("#gastosMensualesBody");
-        if (!tbody) return;
+    // ============================================================================
+    // 5) ESCENARIO CUSTOM (WHAT IF)
+    // ============================================================================
 
-        tbody.innerHTML = "";
-        scenarioData.gastosMensuales.forEach(row => {
-          const tr = document.createElement("tr");
+    function buildCustomScenario() {
+      const base = scenarios[customBaseScenarioName];
+      const data = deepClone(base);
 
-          const tdMes = document.createElement("td");
-          tdMes.textContent = row.mes;
-          tr.appendChild(tdMes);
+      const pctAltas = parseFloat(customAltasInput.value) || 0;
+      const pctPrecio = parseFloat(customPreciosInput.value) || 0;
+      const pctEgresos = parseFloat(customEgresosInput.value) || 0;
 
-          const tdEgresos = document.createElement("td");
-          tdEgresos.className = "money";
-          tdEgresos.dataset.ars = row.egresos + row.impuestos;
-          tr.appendChild(tdEgresos);
+      const factorAltas = 1 + pctAltas / 100;
+      const factorPrecio = 1 + pctPrecio / 100;
+      const factorIngresosPxQ = factorAltas * factorPrecio;
+      const factorEgresos = 1 + pctEgresos / 100;
 
-          const tdImpuestos = document.createElement("td");
-          tdImpuestos.className = "money";
-          tdImpuestos.dataset.ars = row.impuestos;
-          tr.appendChild(tdImpuestos);
-
-          tbody.appendChild(tr);
-        });
-
-        const kpiEl = document.getElementById("egresosPeakKpi");
-        if (kpiEl) {
-          kpiEl.className = "card-kpi money";
-          kpiEl.dataset.ars = scenarioData.kpis.peakEgresos;
-        }
-      }
-
-      // ============================================================================
-      // 5) FUNCIONES DE RENDER PANEL DE CONTROL
-      // ============================================================================
-      function renderPanelControl(scenarioData) {
-        const pc = scenarioData.panelControl;
-
-        const rentCells = document.querySelectorAll(".pc-rent");
-        pc.rent.forEach((val, idx) => {
-          if (rentCells[idx]) rentCells[idx].textContent = val + "%";
-        });
-
-        function applyMoneyRow(arr, cssClass) {
-          const cells = document.querySelectorAll("." + cssClass);
-          arr.forEach((val, idx) => {
-            if (cells[idx]) {
-              cells[idx].dataset.ars = val;
-            }
-          });
-        }
-
-        applyMoneyRow(pc.factPres, "pc-fact-pres");
-        applyMoneyRow(pc.factOnline, "pc-fact-online");
-        applyMoneyRow(pc.mentoring, "pc-mentoring");
-        applyMoneyRow(pc.cabina, "pc-cabina");
-        applyMoneyRow(pc.impuestos, "pc-impuestos");
-        applyMoneyRow(pc.egresos, "pc-egresos");
-        applyMoneyRow(pc.factBruta, "pc-fact-bruta");
-        applyMoneyRow(pc.utilidad, "pc-utilidad");
-      }
-
-      // ============================================================================
-      // 6) FUNCIONES DE RENDER BARRAS PXQ
-      // ============================================================================
-      function renderBarrasPxQ(scenarioData) {
-        const barras = scenarioData.barras;
-
-        const presPromedioFill = document.getElementById("barPresencialPromedioFill");
-        const presPromedioValue = document.getElementById("barPresencialPromedioValue");
-        if (presPromedioFill) presPromedioFill.style.setProperty("--fill", barras.presencial.promedioAlumnos.fill);
-        if (presPromedioValue) presPromedioValue.textContent = barras.presencial.promedioAlumnos.valueLabel;
-
-        const presCrecimientoFill = document.getElementById("barPresencialCrecimientoFill");
-        const presCrecimientoValue = document.getElementById("barPresencialCrecimientoValue");
-        if (presCrecimientoFill) presCrecimientoFill.style.setProperty("--fill", barras.presencial.crecimiento.fill);
-        if (presCrecimientoValue) presCrecimientoValue.textContent = barras.presencial.crecimiento.valueLabel;
-
-        const onlinePromedioFill = document.getElementById("barOnlinePromedioFill");
-        const onlinePromedioValue = document.getElementById("barOnlinePromedioValue");
-        if (onlinePromedioFill) onlinePromedioFill.style.setProperty("--fill", barras.online.promedioAlumnos.fill);
-        if (onlinePromedioValue) onlinePromedioValue.textContent = barras.online.promedioAlumnos.valueLabel;
-
-        const onlineCrecimientoFill = document.getElementById("barOnlineCrecimientoFill");
-        const onlineCrecimientoValue = document.getElementById("barOnlineCrecimientoValue");
-        if (onlineCrecimientoFill) onlineCrecimientoFill.style.setProperty("--fill", barras.online.crecimiento.fill);
-        if (onlineCrecimientoValue) onlineCrecimientoValue.textContent = barras.online.crecimiento.valueLabel;
-      }
-
-      // ============================================================================
-      // 7) ORQUESTADOR DE ESCENARIO
-      // ============================================================================
-      function renderScenario(scenarioName) {
-        const data = scenarios[scenarioName];
-        if (!data) {
-          console.error("Escenario no encontrado:", scenarioName);
-          return;
-        }
-
-        renderPxQPresencial(data);
-        renderPxQOnline(data);
-        renderGastosMensuales(data);
-        renderPanelControl(data);
-        renderBarrasPxQ(data);
-
-        updateCurrency();
-      }
-
-      // ============================================================================
-      // 8) EVENTOS E INICIALIZACIÓN
-      // ============================================================================
-      const scenarioSelect = document.getElementById("scenarioSelect");
-      const currencySelect = document.getElementById("currencySelect");
-
-      scenarioSelect.addEventListener("change", () => {
-        renderScenario(scenarioSelect.value);
+      // --- PxQ Presencial / Online / OnDemand
+      data.pxqPresencial.forEach(row => {
+        row.inicio = Math.round(row.inicio * factorAltas);
+        row.continuidad = Math.round(row.continuidad * factorAltas);
+        row.altas = Math.round(row.altas * factorAltas);
+        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
       });
 
-      currencySelect.addEventListener("change", () => {
-        updateCurrency();
+      data.pxqOnline.forEach(row => {
+        row.inicio = Math.round(row.inicio * factorAltas);
+        row.continuidad = Math.round(row.continuidad * factorAltas);
+        row.altas = Math.round(row.altas * factorAltas);
+        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
       });
 
-      renderScenario("Optimista");
-    })();
-  </script>
-</body>
-</html>
+      data.pxqOnDemand.forEach(row => {
+        row.inicio = Math.round(row.inicio * factorAltas);
+        row.continuidad = Math.round(row.continuidad * factorAltas);
+        row.altas = Math.round(row.altas * factorAltas);
+        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
+      });
 
+      // --- Gastos
+      data.gastosMensuales.forEach(row => {
+        row.egresos = Math.round(row.egresos * factorEgresos);
+        row.impuestos = Math.round(row.impuestos * factorEgresos);
+      });
+
+      // --- Panel de control
+      const pc = data.panelControl;
+
+      function scaleArray(arr, factor) {
+        return arr.map(v => Math.round(v * factor));
+      }
+
+      pc.factPres     = scaleArray(pc.factPres, factorIngresosPxQ);
+      pc.factOnline   = scaleArray(pc.factOnline, factorIngresosPxQ);
+      pc.factOnDemand = scaleArray(pc.factOnDemand, factorIngresosPxQ);
+      pc.mentoring    = scaleArray(pc.mentoring, factorPrecio);
+      pc.cabina       = scaleArray(pc.cabina, factorPrecio);
+      pc.egresos      = scaleArray(pc.egresos, factorEgresos);
+      pc.impuestos    = scaleArray(pc.impuestos, factorEgresos);
+
+      pc.factBruta = pc.factPres.map((_, idx) =>
+        pc.factPres[idx] +
+        pc.factOnline[idx] +
+        pc.factOnDemand[idx] +
+        pc.mentoring[idx] +
+        pc.cabina[idx]
+      );
+
+      pc.utilidad = pc.factBruta.map((fb, idx) => {
+        const eg = pc.egresos[idx] + pc.impuestos[idx];
+        return fb - eg;
+      });
+
+      pc.rent = pc.factBruta.map((fb, idx) => {
+        const eg = pc.egresos[idx] + pc.impuestos[idx];
+        const util = fb - eg;
+        if (fb <= 0) return 0;
+        return Math.round((util / fb) * 100);
+      });
+
+      // --- KPIs
+      data.kpis.peakPresencial = Math.max(...data.pxqPresencial.map(r => r.facturacion));
+      data.kpis.peakOnline     = Math.max(...data.pxqOnline.map(r => r.facturacion));
+      data.kpis.peakOnDemand   = Math.max(...data.pxqOnDemand.map(r => r.facturacion));
+      data.kpis.peakEgresos    = Math.max(...data.gastosMensuales.map(r => r.impuestos));
+
+      // --- Barras (ajuste suave en promedio pax + fill)
+      const baseBars = base.barras;
+      data.barras = deepClone(baseBars);
+
+      const basePresProm = parseInt(baseBars.presencial.promedioAlumnos.valueLabel, 10) || 0;
+      const baseOnlProm  = parseInt(baseBars.online.promedioAlumnos.valueLabel, 10) || 0;
+      const baseOndProm  = parseInt(baseBars.onDemand.promedioAlumnos.valueLabel, 10) || 0;
+
+      const newPresProm = Math.round(basePresProm * factorAltas);
+      const newOnlProm  = Math.round(baseOnlProm  * factorAltas);
+      const newOndProm  = Math.round(baseOndProm  * factorAltas);
+
+      data.barras.presencial.promedioAlumnos.valueLabel = newPresProm + " pax";
+      data.barras.online.promedioAlumnos.valueLabel     = newOnlProm  + " pax";
+      data.barras.onDemand.promedioAlumnos.valueLabel   = newOndProm  + " pax";
+
+      function adjustFill(baseFill) {
+        const f = baseFill * (1 + pctAltas / 200);
+        if (f < 0.1) return 0.1;
+        if (f > 0.95) return 0.95;
+        return f;
+      }
+
+      data.barras.presencial.promedioAlumnos.fill = adjustFill(baseBars.presencial.promedioAlumnos.fill);
+      data.barras.online.promedioAlumnos.fill     = adjustFill(baseBars.online.promedioAlumnos.fill);
+      data.barras.onDemand.promedioAlumnos.fill   = adjustFill(baseBars.onDemand.promedioAlumnos.fill);
+
+      data.barras.presencial.crecimiento.fill = adjustFill(baseBars.presencial.crecimiento.fill);
+      data.barras.online.crecimiento.fill     = adjustFill(baseBars.online.crecimiento.fill);
+      data.barras.onDemand.crecimiento.fill   = adjustFill(baseBars.onDemand.crecimiento.fill);
+
+      return data;
+    }
+
+    // ============================================================================
+    // 6) RENDER: PXQ
+    // ============================================================================
+
+    function renderPxQPresencial(scenarioData) {
+      const tbody = document.getElementById("pxqPresencialBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      scenarioData.pxqPresencial.forEach(row => {
+        const tr = document.createElement("tr");
+
+        const tdMes = document.createElement("td");
+        tdMes.textContent = row.mes;
+        if (row.note) tdMes.setAttribute("data-note", row.note);
+        tr.appendChild(tdMes);
+
+        const tdFact = document.createElement("td");
+        tdFact.className = "money";
+        tdFact.dataset.ars = row.facturacion;
+        tr.appendChild(tdFact);
+
+        const tdIni = document.createElement("td");
+        tdIni.textContent = row.inicio;
+        tr.appendChild(tdIni);
+
+        const tdCont = document.createElement("td");
+        tdCont.textContent = row.continuidad;
+        tr.appendChild(tdCont);
+
+        const tdAltas = document.createElement("td");
+        tdAltas.textContent = row.altas;
+        tr.appendChild(tdAltas);
+
+        tbody.appendChild(tr);
+      });
+
+      const kpiEl = document.getElementById("pxqPresencialPeakKpi");
+      if (kpiEl) {
+        kpiEl.className = "card-kpi money";
+        kpiEl.dataset.ars = scenarioData.kpis.peakPresencial;
+      }
+    }
+
+    function renderPxQOnline(scenarioData) {
+      const tbody = document.getElementById("pxqOnlineBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      scenarioData.pxqOnline.forEach(row => {
+        const tr = document.createElement("tr");
+
+        const tdMes = document.createElement("td");
+        tdMes.textContent = row.mes;
+        if (row.note) tdMes.setAttribute("data-note", row.note);
+        tr.appendChild(tdMes);
+
+        const tdFact = document.createElement("td");
+        tdFact.className = "money";
+        tdFact.dataset.ars = row.facturacion;
+        tr.appendChild(tdFact);
+
+        const tdIni = document.createElement("td");
+        tdIni.textContent = row.inicio;
+        tr.appendChild(tdIni);
+
+        const tdCont = document.createElement("td");
+        tdCont.textContent = row.continuidad;
+        tr.appendChild(tdCont);
+
+        const tdAltas = document.createElement("td");
+        tdAltas.textContent = row.altas;
+        tr.appendChild(tdAltas);
+
+        tbody.appendChild(tr);
+      });
+
+      const kpiEl = document.getElementById("pxqOnlinePeakKpi");
+      if (kpiEl) {
+        kpiEl.className = "card-kpi money";
+        kpiEl.dataset.ars = scenarioData.kpis.peakOnline;
+      }
+    }
+
+    function renderPxQOnDemand(scenarioData) {
+      const tbody = document.getElementById("pxqOnDemandBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      scenarioData.pxqOnDemand.forEach(row => {
+        const tr = document.createElement("tr");
+
+        const tdMes = document.createElement("td");
+        tdMes.textContent = row.mes;
+        if (row.note) tdMes.setAttribute("data-note", row.note);
+        tr.appendChild(tdMes);
+
+        const tdFact = document.createElement("td");
+        tdFact.className = "money";
+        tdFact.dataset.ars = row.facturacion;
+        tr.appendChild(tdFact);
+
+        const tdIni = document.createElement("td");
+        tdIni.textContent = row.inicio;
+        tr.appendChild(tdIni);
+
+        const tdCont = document.createElement("td");
+        tdCont.textContent = row.continuidad;
+        tr.appendChild(tdCont);
+
+        const tdAltas = document.createElement("td");
+        tdAltas.textContent = row.altas;
+        tr.appendChild(tdAltas);
+
+        tbody.appendChild(tr);
+      });
+
+      const kpiEl = document.getElementById("pxqOnDemandPeakKpi");
+      if (kpiEl) {
+        kpiEl.className = "card-kpi money";
+        kpiEl.dataset.ars = scenarioData.kpis.peakOnDemand;
+      }
+    }
+
+    // ============================================================================
+    // 7) RENDER: GASTOS
+    // ============================================================================
+
+    function renderGastosMensuales(scenarioData) {
+      const tbody = document.getElementById("gastosMensualesBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      scenarioData.gastosMensuales.forEach(row => {
+        const tr = document.createElement("tr");
+
+        const tdMes = document.createElement("td");
+        tdMes.textContent = row.mes;
+        tr.appendChild(tdMes);
+
+        const tdEgresosTot = document.createElement("td");
+        tdEgresosTot.className = "money";
+        tdEgresosTot.dataset.ars = row.egresos + row.impuestos;
+        tr.appendChild(tdEgresosTot);
+
+        const tdImpuestos = document.createElement("td");
+        tdImpuestos.className = "money";
+        tdImpuestos.dataset.ars = row.impuestos;
+        tr.appendChild(tdImpuestos);
+
+        tbody.appendChild(tr);
+      });
+
+      const kpiEl = document.getElementById("egresosPeakKpi");
+      if (kpiEl) {
+        kpiEl.className = "card-kpi money";
+        kpiEl.dataset.ars = scenarioData.kpis.peakEgresos;
+      }
+    }
+
+    // ============================================================================
+    // 8) RENDER: PANEL DE CONTROL
+    // ============================================================================
+
+    function renderPanelControl(scenarioData) {
+      const pc = scenarioData.panelControl;
+
+      // Rentabilidad %
+      const rentCells = document.querySelectorAll(".pc-rent");
+      pc.rent.forEach((val, idx) => {
+        if (rentCells[idx]) rentCells[idx].textContent = val + "%";
+      });
+
+      function applyMoneyRow(arr, cssClass) {
+        const cells = document.querySelectorAll("." + cssClass);
+        arr.forEach((val, idx) => {
+          if (cells[idx]) {
+            cells[idx].dataset.ars = val;
+          }
+        });
+      }
+
+      applyMoneyRow(pc.factPres,     "pc-fact-pres");
+      applyMoneyRow(pc.factOnline,   "pc-fact-online");
+      applyMoneyRow(pc.factOnDemand, "pc-fact-ondemand");
+      applyMoneyRow(pc.mentoring,    "pc-mentoring");
+      applyMoneyRow(pc.cabina,       "pc-cabina");
+      applyMoneyRow(pc.impuestos,    "pc-impuestos");
+      applyMoneyRow(pc.egresos,      "pc-egresos");
+      applyMoneyRow(pc.factBruta,    "pc-fact-bruta");
+      applyMoneyRow(pc.utilidad,     "pc-utilidad");
+    }
+
+    // ============================================================================
+    // 9) RENDER: BARRAS
+    // ============================================================================
+
+    function renderBarrasPxQ(scenarioData) {
+      const barras = scenarioData.barras;
+
+      // Presencial
+      const presPromFill = document.getElementById("barPresencialPromedioFill");
+      const presPromVal  = document.getElementById("barPresencialPromedioValue");
+      const presCreFill  = document.getElementById("barPresencialCrecimientoFill");
+      const presCreVal   = document.getElementById("barPresencialCrecimientoValue");
+
+      if (presPromFill) presPromFill.style.setProperty("--fill", barras.presencial.promedioAlumnos.fill);
+      if (presPromVal)  presPromVal.textContent = barras.presencial.promedioAlumnos.valueLabel;
+      if (presCreFill)  presCreFill.style.setProperty("--fill", barras.presencial.crecimiento.fill);
+      if (presCreVal)   presCreVal.textContent = barras.presencial.crecimiento.valueLabel;
+
+      // Online
+      const onlPromFill = document.getElementById("barOnlinePromedioFill");
+      const onlPromVal  = document.getElementById("barOnlinePromedioValue");
+      const onlCreFill  = document.getElementById("barOnlineCrecimientoFill");
+      const onlCreVal   = document.getElementById("barOnlineCrecimientoValue");
+
+      if (onlPromFill) onlPromFill.style.setProperty("--fill", barras.online.promedioAlumnos.fill);
+      if (onlPromVal)  onlPromVal.textContent = barras.online.promedioAlumnos.valueLabel;
+      if (onlCreFill)  onlCreFill.style.setProperty("--fill", barras.online.crecimiento.fill);
+      if (onlCreVal)   onlCreVal.textContent = barras.online.crecimiento.valueLabel;
+
+      // OnDemand
+      const ondPromFill = document.getElementById("barOnDemandPromedioFill");
+      const ondPromVal  = document.getElementById("barOnDemandPromedioValue");
+      const ondCreFill  = document.getElementById("barOnDemandCrecimientoFill");
+      const ondCreVal   = document.getElementById("barOnDemandCrecimientoValue");
+
+      if (ondPromFill) ondPromFill.style.setProperty("--fill", barras.onDemand.promedioAlumnos.fill);
+      if (ondPromVal)  ondPromVal.textContent = barras.onDemand.promedioAlumnos.valueLabel;
+      if (ondCreFill)  ondCreFill.style.setProperty("--fill", barras.onDemand.crecimiento.fill);
+      if (ondCreVal)   ondCreVal.textContent = barras.onDemand.crecimiento.valueLabel;
+    }
+    // ============================================================================
+    // 10) ORQUESTADOR DE ESCENARIOS
+    // ============================================================================
+
+    function renderScenario(scenarioName) {
+      let data;
+      if (scenarioName === "Custom") {
+        data = buildCustomScenario();
+      } else {
+        data = scenarios[scenarioName];
+      }
+      if (!data) return;
+
+      renderPxQPresencial(data);
+      renderPxQOnline(data);
+      renderPxQOnDemand(data);
+      renderGastosMensuales(data);
+      renderPanelControl(data);
+      renderBarrasPxQ(data);
+
+      updateCurrency();
+    }
+
+    // ============================================================================
+    // 11) EVENTOS
+    // ============================================================================
+
+    function handleScenarioChange() {
+      const name = scenarioSelect.value;
+      if (name === "Custom") {
+        customControlsDiv.style.display = "block";
+      } else {
+        customControlsDiv.style.display = "none";
+      }
+      renderScenario(name);
+    }
+
+    scenarioSelect.addEventListener("change", handleScenarioChange);
+    currencySelect.addEventListener("change", updateCurrency);
+
+    function handleCustomInputChange() {
+      customAltasLabel.textContent   = (parseFloat(customAltasInput.value)   || 0) + "%";
+      customPreciosLabel.textContent = (parseFloat(customPreciosInput.value) || 0) + "%";
+      customEgresosLabel.textContent = (parseFloat(customEgresosInput.value) || 0) + "%";
+
+      updateRangeFill(customAltasInput);
+      updateRangeFill(customPreciosInput);
+      updateRangeFill(customEgresosInput);
+
+      if (scenarioSelect.value === "Custom") {
+        renderScenario("Custom");
+      }
+    }
+
+    if (customAltasInput && customPreciosInput && customEgresosInput) {
+      customAltasInput.addEventListener("input", handleCustomInputChange);
+      customPreciosInput.addEventListener("input", handleCustomInputChange);
+      customEgresosInput.addEventListener("input", handleCustomInputChange);
+    }
+
+    // ============================================================================
+    // 12) INICIALIZACIÓN
+    // ============================================================================
+
+    // Ocultamos controles custom al inicio
+    if (customControlsDiv) {
+      customControlsDiv.style.display = "none";
+    }
+
+    // Inicializar labels y fill de sliders
+    if (customAltasInput) {
+      customAltasLabel.textContent = customAltasInput.value + "%";
+      updateRangeFill(customAltasInput);
+    }
+    if (customPreciosInput) {
+      customPreciosLabel.textContent = customPreciosInput.value + "%";
+      updateRangeFill(customPreciosInput);
+    }
+    if (customEgresosInput) {
+      customEgresosLabel.textContent = customEgresosInput.value + "%";
+      updateRangeFill(customEgresosInput);
+    }
+
+    // Escenario por defecto: Optimista
+    renderScenario("Optimista");
+
+  })();
+</script>

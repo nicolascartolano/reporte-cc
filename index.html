@@ -24,11 +24,7 @@
       --egreso: #ff6b6b;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,10 +33,7 @@
       padding: 24px;
     }
 
-    .dashboard {
-      max-width: 1480px;
-      margin: 0 auto 80px auto;
-    }
+    .dashboard { max-width: 1480px; margin: 0 auto 80px auto; }
 
     header {
       display: flex;
@@ -66,17 +59,9 @@
       text-transform: uppercase;
     }
 
-    .title-block p {
-      margin-top: 4px;
-      color: var(--text-soft);
-      font-size: 13px;
-    }
+    .title-block p { margin-top: 4px; color: var(--text-soft); font-size: 13px; }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; }
 
     nav a {
       text-decoration: none;
@@ -162,10 +147,7 @@
       margin-top: 3px;
     }
 
-    .custom-controls-note strong {
-      color: var(--accent-gold);
-      font-weight: 700;
-    }
+    .custom-controls-note strong { color: var(--accent-gold); font-weight: 700; }
 
     .custom-controls-tag {
       font-size: 11px;
@@ -177,18 +159,9 @@
       white-space: nowrap;
     }
 
-    .custom-controls-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+    .custom-controls-row { display: flex; flex-wrap: wrap; gap: 16px; }
 
-    .custom-control {
-      flex: 1;
-      min-width: 210px;
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+    .custom-control { flex: 1; min-width: 210px; font-size: 11px; color: var(--text-soft); }
 
     .custom-control-label {
       text-transform: uppercase;
@@ -199,10 +172,7 @@
       align-items: baseline;
     }
 
-    .custom-control-label span.value {
-      font-weight: 700;
-      color: var(--accent-gold);
-    }
+    .custom-control-label span.value { font-weight: 700; color: var(--accent-gold); }
 
     .custom-control input[type="range"] {
       -webkit-appearance: none;
@@ -245,9 +215,7 @@
       background: rgba(255,255,255,0.12);
     }
 
-    section {
-      margin-bottom: 28px;
-    }
+    section { margin-bottom: 28px; }
 
     section h2 {
       font-size: 18px;
@@ -270,35 +238,17 @@
       background: rgba(246,196,83,0.08);
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 
     @media (max-width: 1200px) {
-      .grid-3 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 900px) {
-      .grid-2, .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .controls {
-        justify-content: flex-start;
-      }
+      .grid-2, .grid-3 { grid-template-columns: minmax(0, 1fr); }
+      header { flex-direction: column; align-items: flex-start; }
+      .controls { justify-content: flex-start; }
     }
 
     .card {
@@ -328,14 +278,11 @@
       pointer-events: none;
     }
 
-    .card-inner {
-      position: relative;
-      z-index: 1;
-    }
+    .card-inner { position: relative; z-index: 1; }
 
     .card-header {
       display: flex;
-      align-items: baseline;
+      align-items: flex-start;
       justify-content: space-between;
       margin-bottom: 10px;
       gap: 10px;
@@ -349,16 +296,8 @@
       color: var(--text-soft);
     }
 
-    .card-kpi {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .card-sub {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-top: 4px;
-    }
+    .card-kpi { font-size: 22px; font-weight: 700; }
+    .card-sub { font-size: 11px; color: var(--text-soft); margin-top: 4px; }
 
     .tag-neutral {
       padding: 2px 7px;
@@ -368,6 +307,7 @@
       background: rgba(255,255,255,0.03);
       color: var(--text-soft);
       border: 1px solid var(--border);
+      white-space: nowrap;
     }
 
     .tag-danger {
@@ -380,19 +320,8 @@
       border: 1px solid rgba(255,75,106,0.4);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      margin-top: 8px;
-    }
-
-    th, td {
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      padding: 6px 4px;
-      text-align: center;
-      white-space: nowrap;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+    th, td { border-bottom: 1px solid rgba(255,255,255,0.04); padding: 6px 4px; text-align: center; white-space: nowrap; }
 
     th {
       text-transform: uppercase;
@@ -402,9 +331,7 @@
       font-weight: 600;
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
+    tr:last-child td { border-bottom: none; }
 
     .table-pxq th:nth-child(1) { width: 16%; }
     .table-pxq th:nth-child(2) { width: 26%; }
@@ -414,30 +341,14 @@
 
     .table-pxq td:nth-child(3),
     .table-pxq td:nth-child(4),
-    .table-pxq td:nth-child(5) {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+    .table-pxq td:nth-child(5) { font-size: 11px; color: var(--text-soft); }
 
-    .compact-table {
-      table-layout: fixed;
-    }
-    .compact-table th:nth-child(1),
-    .compact-table td:nth-child(1) { width: 32%; }
-    .compact-table th:nth-child(2),
-    .compact-table td:nth-child(2) { width: 34%; }
-    .compact-table th:nth-child(3),
-    .compact-table td:nth-child(3) { width: 34%; }
+    .compact-table { table-layout: fixed; }
+    .compact-table th:nth-child(1), .compact-table td:nth-child(1) { width: 32%; }
+    .compact-table th:nth-child(2), .compact-table td:nth-child(2) { width: 34%; }
+    .compact-table th:nth-child(3), .compact-table td:nth-child(3) { width: 34%; }
 
-    td[data-note] {
-      position: relative;
-      cursor: help;
-    }
-
-    td[data-note]:hover::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    td[data-note] { position: relative; cursor: help; }
 
     td[data-note]::after {
       content: attr(data-note);
@@ -459,6 +370,8 @@
       z-index: 20;
     }
 
+    td[data-note]:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
     .bar-row {
       margin-top: 10px;
       display: flex;
@@ -466,10 +379,6 @@
       gap: 6px;
       font-size: 11px;
       color: var(--text-soft);
-    }
-
-    .bar-label {
-      min-width: 0;
     }
 
     .bar-shell {
@@ -481,19 +390,16 @@
       position: relative;
     }
 
+    /* IMPORTANTE: el width depende de --fill (número entre 0 y 1) */
     .bar-fill {
       height: 100%;
-      width: calc(var(--fill, 0.7) * 100%);
+      width: calc(var(--fill, 0.0) * 100%);
       background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
     }
 
-    .bar-value {
-      white-space: nowrap;
-    }
+    .bar-value { white-space: nowrap; }
 
-    .panel-control.card {
-      margin-top: 4px;
-    }
+    .panel-control.card { margin-top: 4px; }
 
     .panel-control table {
       width: 100%;
@@ -503,11 +409,7 @@
       table-layout: fixed;
     }
 
-    .panel-control th,
-    .panel-control td {
-      text-align: center;
-      padding: 6px 3px;
-    }
+    .panel-control th, .panel-control td { text-align: center; padding: 6px 3px; }
 
     .panel-control thead tr.month-row th {
       font-size: 10px;
@@ -519,24 +421,11 @@
       background: linear-gradient(90deg, rgba(255,41,117,0.25), rgba(255,140,66,0.16), rgba(246,196,83,0.18));
     }
 
-    .panel-control tbody tr:nth-child(odd) {
-      background: rgba(255,255,255,0.02);
-    }
+    .panel-control tbody tr:nth-child(odd) { background: rgba(255,255,255,0.02); }
 
-    .metric-ingreso td:not(:first-child) {
-      color: var(--ingreso);
-      font-weight: 600;
-    }
-
-    .metric-egreso td:not(:first-child) {
-      color: var(--egreso);
-      font-weight: 600;
-    }
-
-    .money-strong td:not(:first-child) {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
+    .metric-ingreso td:not(:first-child) { color: var(--ingreso); font-weight: 600; }
+    .metric-egreso td:not(:first-child) { color: var(--egreso); font-weight: 600; }
+    .money-strong td:not(:first-child) { color: var(--accent-orange); font-weight: 600; }
 
     footer {
       margin-top: 40px;
@@ -576,11 +465,20 @@
           <option value="Custom">Custom</option>
         </select>
       </div>
+
       <div class="controls-group">
-        <label for="currencySelect">Seleccionar divisa</label>
+        <label for="currencySelect">Divisa</label>
         <select id="currencySelect">
-          <option value="ARS" selected>Pesos Argentinos</option>
-          <option value="USD">Dólares Estadounidenses</option>
+          <option value="ARS" selected>ARS</option>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+
+      <div class="controls-group">
+        <label for="ivaSelect">IVA</label>
+        <select id="ivaSelect">
+          <option value="SIN" selected>Sin IVA</option>
+          <option value="CON">Con IVA</option>
         </select>
       </div>
     </div>
@@ -604,6 +502,7 @@
           </div>
           <input type="range" id="customAltas" min="-40" max="40" value="0" step="5" />
         </div>
+
         <div class="custom-control">
           <div class="custom-control-label">
             <span>% aumento de precios</span>
@@ -611,6 +510,7 @@
           </div>
           <input type="range" id="customPrecios" min="-40" max="40" value="0" step="5" />
         </div>
+
         <div class="custom-control">
           <div class="custom-control-label">
             <span>% variación en egresos</span>
@@ -625,12 +525,13 @@
       <h2>PxQ 2026 <span class="badge">Presencial · Online · OnDemand</span></h2>
 
       <div class="grid-3">
+        <!-- PRESENCIAL -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
                 <div class="card-title">Presencial</div>
-                <div class="card-sub">Totales mensuales netos de IVA – 2026</div>
+                <div class="card-sub">Totales mensuales 2026</div>
               </div>
               <div>
                 <div class="card-kpi money" id="pxqPresencialPeakKpi">$0</div>
@@ -641,11 +542,7 @@
             <table class="table-pxq">
               <thead>
                 <tr>
-                  <th>Mes</th>
-                  <th>Fact</th>
-                  <th>Inicio</th>
-                  <th>Cont</th>
-                  <th>Altas</th>
+                  <th>Mes</th><th>Fact</th><th>Inicio</th><th>Cont</th><th>Altas</th>
                 </tr>
               </thead>
               <tbody id="pxqPresencialBody"></tbody>
@@ -653,28 +550,25 @@
 
             <div class="bar-row">
               <div class="bar-label">Prom. pax</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barPresencialPromedioFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barPresencialPromedioFill"></div></div>
               <div class="bar-value" id="barPresencialPromedioValue">0</div>
             </div>
 
             <div class="bar-row">
               <div class="bar-label">Crec.</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barPresencialCrecimientoFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barPresencialCrecimientoFill"></div></div>
               <div class="bar-value" id="barPresencialCrecimientoValue">0%</div>
             </div>
           </div>
         </div>
 
+        <!-- ONLINE -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
                 <div class="card-title">Online</div>
-                <div class="card-sub">Totales mensuales netos de IVA</div>
+                <div class="card-sub">Totales mensuales 2026</div>
               </div>
               <div>
                 <div class="card-kpi money" id="pxqOnlinePeakKpi">$0</div>
@@ -685,11 +579,7 @@
             <table class="table-pxq">
               <thead>
                 <tr>
-                  <th>Mes</th>
-                  <th>Fact</th>
-                  <th>Inicio</th>
-                  <th>Cont</th>
-                  <th>Altas</th>
+                  <th>Mes</th><th>Fact</th><th>Inicio</th><th>Cont</th><th>Altas</th>
                 </tr>
               </thead>
               <tbody id="pxqOnlineBody"></tbody>
@@ -697,28 +587,25 @@
 
             <div class="bar-row">
               <div class="bar-label">Prom. pax</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barOnlinePromedioFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barOnlinePromedioFill"></div></div>
               <div class="bar-value" id="barOnlinePromedioValue">0</div>
             </div>
 
             <div class="bar-row">
               <div class="bar-label">Crec.</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barOnlineCrecimientoFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barOnlineCrecimientoFill"></div></div>
               <div class="bar-value" id="barOnlineCrecimientoValue">0%</div>
             </div>
           </div>
         </div>
 
+        <!-- ONDEMAND -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
                 <div class="card-title">OnDemand</div>
-                <div class="card-sub">Totales mensuales netos de IVA</div>
+                <div class="card-sub">Totales mensuales 2026</div>
               </div>
               <div>
                 <div class="card-kpi money" id="pxqOnDemandPeakKpi">$0</div>
@@ -729,11 +616,7 @@
             <table class="table-pxq">
               <thead>
                 <tr>
-                  <th>Mes</th>
-                  <th>Fact</th>
-                  <th>Inicio</th>
-                  <th>Cont</th>
-                  <th>Altas</th>
+                  <th>Mes</th><th>Fact</th><th>Inicio</th><th>Cont</th><th>Altas</th>
                 </tr>
               </thead>
               <tbody id="pxqOnDemandBody"></tbody>
@@ -741,17 +624,13 @@
 
             <div class="bar-row">
               <div class="bar-label">Prom. pax</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barOnDemandPromedioFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barOnDemandPromedioFill"></div></div>
               <div class="bar-value" id="barOnDemandPromedioValue">0</div>
             </div>
 
             <div class="bar-row">
               <div class="bar-label">Crec.</div>
-              <div class="bar-shell">
-                <div class="bar-fill" id="barOnDemandCrecimientoFill"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" id="barOnDemandCrecimientoFill"></div></div>
               <div class="bar-value" id="barOnDemandCrecimientoValue">0%</div>
             </div>
           </div>
@@ -778,11 +657,7 @@
 
             <table class="compact-table">
               <thead>
-                <tr>
-                  <th>Mes</th>
-                  <th>Egresos totales</th>
-                  <th>Impuestos</th>
-                </tr>
+                <tr><th>Mes</th><th>Egresos totales</th><th>Impuestos</th></tr>
               </thead>
               <tbody id="gastosMensualesBody"></tbody>
             </table>
@@ -799,45 +674,20 @@
             </div>
 
             <table>
-              <thead>
-                <tr>
-                  <th>Categoría</th>
-                  <th>% aprox.</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Categoría</th><th>% aprox.</th></tr></thead>
               <tbody>
-                <tr>
-                  <td data-note="Horas dictadas por módulo">Profesores</td>
-                  <td>30–35%</td>
-                </tr>
-                <tr>
-                  <td data-note="Front desk, comercial">Staff admin</td>
-                  <td>15–20%</td>
-                </tr>
-                <tr>
-                  <td data-note="Estudio, cabinas">Alquiler</td>
-                  <td>10–15%</td>
-                </tr>
-                <tr>
-                  <td data-note="Ads, contenidos">Marketing</td>
-                  <td>10–15%</td>
-                </tr>
-                <tr>
-                  <td data-note="Moodle, DAWs">Licencias</td>
-                  <td>3–5%</td>
-                </tr>
-                <tr>
-                  <td data-note="IVA, ganancias">Impuestos</td>
-                  <td>25–30%</td>
-                </tr>
+                <tr><td data-note="Horas dictadas por módulo">Profesores</td><td>30–35%</td></tr>
+                <tr><td data-note="Front desk, comercial">Staff admin</td><td>15–20%</td></tr>
+                <tr><td data-note="Estudio, cabinas">Alquiler</td><td>10–15%</td></tr>
+                <tr><td data-note="Ads, contenidos">Marketing</td><td>10–15%</td></tr>
+                <tr><td data-note="Moodle, DAWs">Licencias</td><td>3–5%</td></tr>
+                <tr><td data-note="IVA, ganancias">Impuestos</td><td>25–30%</td></tr>
               </tbody>
             </table>
 
             <div class="bar-row">
               <div class="bar-label">Margen potencial</div>
-              <div class="bar-shell">
-                <div class="bar-fill" style="--fill:0.50;"></div>
-              </div>
+              <div class="bar-shell"><div class="bar-fill" style="--fill:0.50;"></div></div>
               <div class="bar-value tag-danger">Optimizable</div>
             </div>
           </div>
@@ -849,15 +699,13 @@
       <h2>Vista Ejecutiva 2026 <span class="badge">Inversores &amp; Socios</span></h2>
 
       <div class="grid-2">
-        <!-- CASHFLOW MENSUAL -->
+        <!-- CASHFLOW -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
                 <div class="card-title">Cashflow mensual</div>
-                <div class="card-sub">
-                  Facturación bruta vs egresos vs utilidad · Netos de IVA
-                </div>
+                <div class="card-sub">Facturación vs egresos vs utilidad</div>
               </div>
               <div class="tag-neutral">Por Escenario</div>
             </div>
@@ -867,36 +715,37 @@
           </div>
         </div>
 
-        <!-- MIX DE FACTURACIÓN -->
+        <!-- MIX FACTURACIÓN -->
         <div class="card">
           <div class="card-inner">
             <div class="card-header">
               <div>
                 <div class="card-title">Distribución de facturación</div>
-                <div class="card-sub">
-                  Participación anual por unidad de negocio · 2026
-                </div>
+                <div class="card-sub">Participación anual por unidad de negocio · 2026</div>
               </div>
               <div class="tag-neutral">Presencial · Online · OnDemand</div>
             </div>
-            <div style="display:flex; align-items:center; gap:18px; height:260px;">
-              <div style="flex:1; min-width:0;">
+
+            <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:16px; align-items:center;">
+              <div style="position:relative; height:240px;">
                 <canvas id="chartMix"></canvas>
               </div>
-              <div style="font-size:12px; color:var(--text-soft); min-width:130px;">
-                <div style="margin-bottom:6px; text-transform:uppercase; letter-spacing:.08em; font-size:11px;">Claves</div>
-                <ul style="list-style:none; padding:0; margin:0;">
-                  <li>• Presencial: Motor principal de caja</li>
-                  <li>• Online + OnDemand: Escalabilidad regional</li>
-                  <li>• Mentoring &amp; Cabina: Tickets altos de margen</li>
-                </ul>
+
+              <!-- CLAVES (FIJO COMO EN TU IMAGEN) -->
+              <div style="font-size:13px; color:var(--text-soft); line-height:1.6;">
+                <div style="letter-spacing:.12em; text-transform:uppercase; font-size:12px; color:#f5f5f5; margin-bottom:8px;">
+                  Claves
+                </div>
+                • Presencial: Motor principal de caja<br>
+                • Online + OnDemand: Escalabilidad regional<br>
+                • Mentoring &amp; Cabina: Tickets altos de margen
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
-
     <section id="panel-control">
       <h2>Panel de Control 2026 <span class="badge">Rentabilidad &amp; Utilidad</span></h2>
 
@@ -907,143 +756,75 @@
               <div class="card-title">Panel de control 2026</div>
               <div class="card-sub">Rentabilidad, facturación, impuestos y utilidad · Casa Creativa</div>
             </div>
-            <div class="tag-neutral">Proyección Anual </div>
+            <div class="tag-neutral">Proyección Anual</div>
           </div>
 
           <table>
             <thead>
               <tr class="month-row">
-                <th>Tipo ↓</th>
-                <th>May</th>
-                <th>Jun</th>
-                <th>Jul</th>
-                <th>Ago</th>
-                <th>Sep</th>
-                <th>Oct</th>
-                <th>Nov</th>
-                <th>Dic</th>
+                <th>Tipo</th><th>May</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
               </tr>
             </thead>
 
             <tbody>
               <tr class="metric-ingreso">
                 <td>Rent %</td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
-                <td class="pc-rent"></td>
+                <td class="pc-rent"></td><td class="pc-rent"></td><td class="pc-rent"></td><td class="pc-rent"></td>
+                <td class="pc-rent"></td><td class="pc-rent"></td><td class="pc-rent"></td><td class="pc-rent"></td>
               </tr>
 
               <tr>
                 <td>Fact. Presencial</td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
-                <td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td>
+                <td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td><td class="money pc-fact-pres"></td>
               </tr>
 
               <tr>
                 <td>Fact. Online</td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
-                <td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td><td class="money pc-fact-online"></td><td class="money pc-fact-online"></td><td class="money pc-fact-online"></td>
+                <td class="money pc-fact-online"></td><td class="money pc-fact-online"></td><td class="money pc-fact-online"></td><td class="money pc-fact-online"></td>
               </tr>
 
               <tr>
                 <td>Fact. OnDemand</td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
-                <td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td>
+                <td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td><td class="money pc-fact-ondemand"></td>
               </tr>
 
               <tr>
                 <td>Mentoring</td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
-                <td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td><td class="money pc-mentoring"></td><td class="money pc-mentoring"></td><td class="money pc-mentoring"></td>
+                <td class="money pc-mentoring"></td><td class="money pc-mentoring"></td><td class="money pc-mentoring"></td><td class="money pc-mentoring"></td>
               </tr>
 
               <tr>
                 <td>Cabina</td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
-                <td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td><td class="money pc-cabina"></td><td class="money pc-cabina"></td><td class="money pc-cabina"></td>
+                <td class="money pc-cabina"></td><td class="money pc-cabina"></td><td class="money pc-cabina"></td><td class="money pc-cabina"></td>
               </tr>
 
               <tr class="metric-egreso">
                 <td>Impuestos</td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
-                <td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td><td class="money pc-impuestos"></td><td class="money pc-impuestos"></td><td class="money pc-impuestos"></td>
+                <td class="money pc-impuestos"></td><td class="money pc-impuestos"></td><td class="money pc-impuestos"></td><td class="money pc-impuestos"></td>
               </tr>
 
               <tr class="metric-egreso">
                 <td>Total Egresos</td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
-                <td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td><td class="money pc-egresos"></td><td class="money pc-egresos"></td><td class="money pc-egresos"></td>
+                <td class="money pc-egresos"></td><td class="money pc-egresos"></td><td class="money pc-egresos"></td><td class="money pc-egresos"></td>
               </tr>
 
               <tr class="money-strong">
                 <td>Fact Bruta</td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
-                <td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td>
+                <td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td><td class="money pc-fact-bruta"></td>
               </tr>
 
               <tr class="metric-ingreso">
                 <td>Utilidad $</td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
-                <td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td><td class="money pc-utilidad"></td><td class="money pc-utilidad"></td><td class="money pc-utilidad"></td>
+                <td class="money pc-utilidad"></td><td class="money pc-utilidad"></td><td class="money pc-utilidad"></td><td class="money pc-utilidad"></td>
               </tr>
             </tbody>
           </table>
@@ -1051,21 +832,63 @@
       </div>
     </section>
 
-    <footer>
-      Casa Creativa · Dashboard 2026 · Para socios e inversores
-    </footer>
+    <footer>Casa Creativa · Dashboard 2026 · Para socios e inversores</footer>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
   (function() {
     'use strict';
 
     // ============================================================================
-    // 1) CONSTANTES Y ESCENARIOS
+    // 1) CONSTANTES
     // ============================================================================
-
     const dolar = 1442;
 
+    const IVA_RATE = 0.21;
+    let ivaMode = "SIN"; // SIN | CON
+
+    // Colores integrados (para Cashflow)
+    const COLOR_FACT = {
+      bg: "rgba(246,196,83,0.55)",
+      border: "rgba(255,140,66,1)"
+    };
+
+    const COLOR_EGRESOS = {
+      bg: "rgba(255,75,106,0.35)",
+      border: "rgba(255,75,106,1)"
+    };
+
+    const COLOR_UTILIDAD = {
+      line: "rgba(53,208,127,1)",
+      fill: "rgba(53,208,127,0.10)"
+    };
+
+    function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
+    function formatThousands(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+    function formatARS(value) { return "$" + formatThousands(value); }
+    function formatUSD(value) { return "USD " + formatThousands(value); }
+
+    function applyIVA(value) {
+      if (ivaMode === "CON") return Math.round(value * (1 - IVA_RATE));
+      return value;
+    }
+
+    function toDisplayCurrency(valueARS) {
+      const mode = currencySelect.value;
+      if (mode === "USD") return Math.round(valueARS / dolar);
+      return valueARS;
+    }
+
+    function formatByCurrency(valueARS) {
+      const mode = currencySelect.value;
+      if (mode === "USD") return formatUSD(Math.round(valueARS / dolar));
+      return formatARS(valueARS);
+    }
+
+    // ============================================================================
+    // 2) ESCENARIOS (DATA)
+    // ============================================================================
     const scenarios = {
       Optimista: {
         pxqPresencial: [
@@ -1252,50 +1075,12 @@
     };
 
     const customBaseScenarioName = "Moderado";
-
-    // Gráficos ejecutivos
-    const monthLabels = ["May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
-    let cashflowChart = null;
-    let mixChart = null;
-
     // ============================================================================
-    // 2) HELPERS GENERALES
+    // 3) DOM
     // ============================================================================
-
-    function deepClone(obj) {
-      return JSON.parse(JSON.stringify(obj));
-    }
-
-    function formatThousands(n) {
-      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
-    function formatARS(value) {
-      return "$" + formatThousands(value);
-    }
-
-    function formatUSD(value) {
-      return "USD " + formatThousands(value);
-    }
-
-    // Mismo formateo de moneda para gráficos según divisa
-    function formatChartMoney(value) {
-      const mode = currencySelect.value || "ARS";
-      const v = Math.round(value);
-      if (mode === "ARS") {
-        return formatARS(v);
-      } else {
-        const usd = Math.round(v / dolar);
-        return formatUSD(usd);
-      }
-    }
-
-    // ============================================================================
-    // 3) REFERENCIAS AL DOM
-    // ============================================================================
-
     const scenarioSelect = document.getElementById("scenarioSelect");
     const currencySelect = document.getElementById("currencySelect");
+    const ivaSelect = document.getElementById("ivaSelect");
 
     const customControlsDiv = document.getElementById("customControls");
     const customAltasInput = document.getElementById("customAltas");
@@ -1314,27 +1099,21 @@
     }
 
     // ============================================================================
-    // 4) MONEDA
+    // 4) MONEDA EN TABLAS / KPIs
     // ============================================================================
-
     function updateCurrency() {
-      const mode = currencySelect.value;
       document.querySelectorAll(".money").forEach(el => {
         const ars = parseInt(el.dataset.ars, 10);
         if (isNaN(ars)) return;
-        if (mode === "ARS") {
-          el.textContent = formatARS(ars);
-        } else {
-          const usd = Math.round(ars / dolar);
-          el.textContent = formatUSD(usd);
-        }
+        el.textContent = (currencySelect.value === "USD")
+          ? formatUSD(Math.round(ars / dolar))
+          : formatARS(ars);
       });
     }
 
     // ============================================================================
-    // 5) ESCENARIO CUSTOM (WHAT IF)
+    // 5) CUSTOM SCENARIO (WHAT IF)
     // ============================================================================
-
     function buildCustomScenario() {
       const base = scenarios[customBaseScenarioName];
       const data = deepClone(base);
@@ -1348,307 +1127,113 @@
       const factorIngresosPxQ = factorAltas * factorPrecio;
       const factorEgresos = 1 + pctEgresos / 100;
 
-      // PxQ Presencial / Online / OnDemand
-      data.pxqPresencial.forEach(row => {
-        row.inicio = Math.round(row.inicio * factorAltas);
-        row.continuidad = Math.round(row.continuidad * factorAltas);
-        row.altas = Math.round(row.altas * factorAltas);
-        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
+      data.pxqPresencial.forEach(r => {
+        r.inicio = Math.round(r.inicio * factorAltas);
+        r.continuidad = Math.round(r.continuidad * factorAltas);
+        r.altas = Math.round(r.altas * factorAltas);
+        r.facturacion = Math.round(r.facturacion * factorIngresosPxQ);
       });
 
-      data.pxqOnline.forEach(row => {
-        row.inicio = Math.round(row.inicio * factorAltas);
-        row.continuidad = Math.round(row.continuidad * factorAltas);
-        row.altas = Math.round(row.altas * factorAltas);
-        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
+      data.pxqOnline.forEach(r => {
+        r.inicio = Math.round(r.inicio * factorAltas);
+        r.continuidad = Math.round(r.continuidad * factorAltas);
+        r.altas = Math.round(r.altas * factorAltas);
+        r.facturacion = Math.round(r.facturacion * factorIngresosPxQ);
       });
 
-      data.pxqOnDemand.forEach(row => {
-        row.inicio = Math.round(row.inicio * factorAltas);
-        row.continuidad = Math.round(row.continuidad * factorAltas);
-        row.altas = Math.round(row.altas * factorAltas);
-        row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
+      data.pxqOnDemand.forEach(r => {
+        r.inicio = Math.round(r.inicio * factorAltas);
+        r.continuidad = Math.round(r.continuidad * factorAltas);
+        r.altas = Math.round(r.altas * factorAltas);
+        r.facturacion = Math.round(r.facturacion * factorIngresosPxQ);
       });
 
-      // Gastos
-      data.gastosMensuales.forEach(row => {
-        row.egresos = Math.round(row.egresos * factorEgresos);
-        row.impuestos = Math.round(row.impuestos * factorEgresos);
+      data.gastosMensuales.forEach(r => {
+        r.egresos = Math.round(r.egresos * factorEgresos);
+        r.impuestos = Math.round(r.impuestos * factorEgresos);
       });
 
-      // Panel de control
       const pc = data.panelControl;
+      const scale = (arr, f) => arr.map(v => Math.round(v * f));
 
-      function scaleArray(arr, factor) {
-        return arr.map(v => Math.round(v * factor));
-      }
+      pc.factPres     = scale(pc.factPres, factorIngresosPxQ);
+      pc.factOnline   = scale(pc.factOnline, factorIngresosPxQ);
+      pc.factOnDemand = scale(pc.factOnDemand, factorIngresosPxQ);
+      pc.mentoring    = scale(pc.mentoring, factorPrecio);
+      pc.cabina       = scale(pc.cabina, factorPrecio);
+      pc.egresos      = scale(pc.egresos, factorEgresos);
+      pc.impuestos    = scale(pc.impuestos, factorEgresos);
 
-      pc.factPres     = scaleArray(pc.factPres, factorIngresosPxQ);
-      pc.factOnline   = scaleArray(pc.factOnline, factorIngresosPxQ);
-      pc.factOnDemand = scaleArray(pc.factOnDemand, factorIngresosPxQ);
-      pc.mentoring    = scaleArray(pc.mentoring, factorPrecio);
-      pc.cabina       = scaleArray(pc.cabina, factorPrecio);
-      pc.egresos      = scaleArray(pc.egresos, factorEgresos);
-      pc.impuestos    = scaleArray(pc.impuestos, factorEgresos);
-
-      pc.factBruta = pc.factPres.map((_, idx) =>
-        pc.factPres[idx] +
-        pc.factOnline[idx] +
-        pc.factOnDemand[idx] +
-        pc.mentoring[idx] +
-        pc.cabina[idx]
+      pc.factBruta = pc.factPres.map((_, i) =>
+        pc.factPres[i] + pc.factOnline[i] + pc.factOnDemand[i] + pc.mentoring[i] + pc.cabina[i]
       );
 
-      pc.utilidad = pc.factBruta.map((fb, idx) => {
-        const eg = pc.egresos[idx] + pc.impuestos[idx];
-        return fb - eg;
-      });
+      pc.utilidad = pc.factBruta.map((fb, i) => fb - (pc.egresos[i] + pc.impuestos[i]));
+      pc.rent = pc.factBruta.map((fb, i) => fb <= 0 ? 0 : Math.round((pc.utilidad[i] / fb) * 100));
 
-      pc.rent = pc.factBruta.map((fb, idx) => {
-        const eg = pc.egresos[idx] + pc.impuestos[idx];
-        const util = fb - eg;
-        if (fb <= 0) return 0;
-        return Math.round((util / fb) * 100);
-      });
-
-      // KPIs
       data.kpis.peakPresencial = Math.max(...data.pxqPresencial.map(r => r.facturacion));
       data.kpis.peakOnline     = Math.max(...data.pxqOnline.map(r => r.facturacion));
       data.kpis.peakOnDemand   = Math.max(...data.pxqOnDemand.map(r => r.facturacion));
       data.kpis.peakEgresos    = Math.max(...data.gastosMensuales.map(r => r.impuestos));
 
-      // Barras (ajuste suave)
-      const baseBars = base.barras;
-      data.barras = deepClone(baseBars);
-
-      const basePresProm = parseInt(baseBars.presencial.promedioAlumnos.valueLabel, 10) || 0;
-      const baseOnlProm  = parseInt(baseBars.online.promedioAlumnos.valueLabel, 10) || 0;
-      const baseOndProm  = parseInt(baseBars.onDemand.promedioAlumnos.valueLabel, 10) || 0;
-
-      const newPresProm = Math.round(basePresProm * factorAltas);
-      const newOnlProm  = Math.round(baseOnlProm  * factorAltas);
-      const newOndProm  = Math.round(baseOndProm  * factorAltas);
-
-      data.barras.presencial.promedioAlumnos.valueLabel = newPresProm + " pax";
-      data.barras.online.promedioAlumnos.valueLabel     = newOnlProm  + " pax";
-      data.barras.onDemand.promedioAlumnos.valueLabel   = newOndProm  + " pax";
-
-      function adjustFill(baseFill) {
-        const f = baseFill * (1 + pctAltas / 200);
-        if (f < 0.1) return 0.1;
-        if (f > 0.95) return 0.95;
-        return f;
-      }
-
-      data.barras.presencial.promedioAlumnos.fill = adjustFill(baseBars.presencial.promedioAlumnos.fill);
-      data.barras.online.promedioAlumnos.fill     = adjustFill(baseBars.online.promedioAlumnos.fill);
-      data.barras.onDemand.promedioAlumnos.fill   = adjustFill(baseBars.onDemand.promedioAlumnos.fill);
-
-      data.barras.presencial.crecimiento.fill = adjustFill(baseBars.presencial.crecimiento.fill);
-      data.barras.online.crecimiento.fill     = adjustFill(baseBars.online.crecimiento.fill);
-      data.barras.onDemand.crecimiento.fill   = adjustFill(baseBars.onDemand.crecimiento.fill);
-
       return data;
     }
 
-// ============================================================================
-// RENDER: BARRAS DE PROM. PAX Y CRECIMIENTO — PRESENCIAL / ONLINE / ONDEMAND
-// ============================================================================
-  function renderBarrasPxQ(scenarioData) {
-    const b = scenarioData.barras;
-
-  // --- PRESENCIAL ---
-  const presPromFill  = document.getElementById("barPresencialPromedioFill");
-  const presPromValue = document.getElementById("barPresencialPromedioValue");
-  const presCreFill   = document.getElementById("barPresencialCrecimientoFill");
-  const presCreValue  = document.getElementById("barPresencialCrecimientoValue");
-
-  if (presPromFill && presPromValue && presCreFill && presCreValue) {
-    presPromFill.style.setProperty("--fill", b.presencial.promedioAlumnos.fill);
-    presPromValue.textContent = b.presencial.promedioAlumnos.valueLabel;
-
-    presCreFill.style.setProperty("--fill", b.presencial.crecimiento.fill);
-    presCreValue.textContent = b.presencial.crecimiento.valueLabel;
-  }
-
-  // --- ONLINE ---
-  const onlPromFill  = document.getElementById("barOnlinePromedioFill");
-  const onlPromValue = document.getElementById("barOnlinePromedioValue");
-  const onlCreFill   = document.getElementById("barOnlineCrecimientoFill");
-  const onlCreValue  = document.getElementById("barOnlineCrecimientoValue");
-
-  if (onlPromFill && onlPromValue && onlCreFill && onlCreValue) {
-    onlPromFill.style.setProperty("--fill", b.online.promedioAlumnos.fill);
-    onlPromValue.textContent = b.online.promedioAlumnos.valueLabel;
-
-    onlCreFill.style.setProperty("--fill", b.online.crecimiento.fill);
-    onlCreValue.textContent = b.online.crecimiento.valueLabel;
-  }
-
-  // --- ONDEMAND ---
-  const ondPromFill  = document.getElementById("barOnDemandPromedioFill");
-  const ondPromValue = document.getElementById("barOnDemandPromedioValue");
-  const ondCreFill   = document.getElementById("barOnDemandCrecimientoFill");
-  const ondCreValue  = document.getElementById("barOnDemandCrecimientoValue");
-
-  if (ondPromFill && ondPromValue && ondCreFill && ondCreValue) {
-    ondPromFill.style.setProperty("--fill", b.onDemand.promedioAlumnos.fill);
-    ondPromValue.textContent = b.onDemand.promedioAlumnos.valueLabel;
-
-    ondCreFill.style.setProperty("--fill", b.onDemand.crecimiento.fill);
-    ondCreValue.textContent = b.onDemand.crecimiento.valueLabel;
-  }
-}
-
-
     // ============================================================================
-    // 6) RENDER: PXQ
+    // 6) RENDERS: PXQ
     // ============================================================================
-
-    function renderPxQPresencial(scenarioData) {
-      const tbody = document.getElementById("pxqPresencialBody");
+    function renderPxQ(tbodyId, rows, kpiId, peakVal) {
+      const tbody = document.getElementById(tbodyId);
       if (!tbody) return;
       tbody.innerHTML = "";
 
-      scenarioData.pxqPresencial.forEach(row => {
+      rows.forEach(r => {
         const tr = document.createElement("tr");
 
         const tdMes = document.createElement("td");
-        tdMes.textContent = row.mes;
-        if (row.note) tdMes.setAttribute("data-note", row.note);
+        tdMes.textContent = r.mes;
+        if (r.note) tdMes.setAttribute("data-note", r.note);
         tr.appendChild(tdMes);
 
         const tdFact = document.createElement("td");
         tdFact.className = "money";
-        tdFact.dataset.ars = row.facturacion;
+        tdFact.dataset.ars = applyIVA(r.facturacion);
         tr.appendChild(tdFact);
 
-        const tdIni = document.createElement("td");
-        tdIni.textContent = row.inicio;
-        tr.appendChild(tdIni);
-
-        const tdCont = document.createElement("td");
-        tdCont.textContent = row.continuidad;
-        tr.appendChild(tdCont);
-
-        const tdAltas = document.createElement("td");
-        tdAltas.textContent = row.altas;
-        tr.appendChild(tdAltas);
+        const tdIni = document.createElement("td"); tdIni.textContent = r.inicio; tr.appendChild(tdIni);
+        const tdCont = document.createElement("td"); tdCont.textContent = r.continuidad; tr.appendChild(tdCont);
+        const tdAltas = document.createElement("td"); tdAltas.textContent = r.altas; tr.appendChild(tdAltas);
 
         tbody.appendChild(tr);
       });
 
-      const kpiEl = document.getElementById("pxqPresencialPeakKpi");
+      const kpiEl = document.getElementById(kpiId);
       if (kpiEl) {
         kpiEl.className = "card-kpi money";
-        kpiEl.dataset.ars = scenarioData.kpis.peakPresencial;
-      }
-    }
-
-    function renderPxQOnline(scenarioData) {
-      const tbody = document.getElementById("pxqOnlineBody");
-      if (!tbody) return;
-      tbody.innerHTML = "";
-
-      scenarioData.pxqOnline.forEach(row => {
-        const tr = document.createElement("tr");
-
-        const tdMes = document.createElement("td");
-        tdMes.textContent = row.mes;
-        if (row.note) tdMes.setAttribute("data-note", row.note);
-        tr.appendChild(tdMes);
-
-        const tdFact = document.createElement("td");
-        tdFact.className = "money";
-        tdFact.dataset.ars = row.facturacion;
-        tr.appendChild(tdFact);
-
-        const tdIni = document.createElement("td");
-        tdIni.textContent = row.inicio;
-        tr.appendChild(tdIni);
-
-        const tdCont = document.createElement("td");
-        tdCont.textContent = row.continuidad;
-        tr.appendChild(tdCont);
-
-        const tdAltas = document.createElement("td");
-        tdAltas.textContent = row.altas;
-        tr.appendChild(tdAltas);
-
-        tbody.appendChild(tr);
-      });
-
-      const kpiEl = document.getElementById("pxqOnlinePeakKpi");
-      if (kpiEl) {
-        kpiEl.className = "card-kpi money";
-        kpiEl.dataset.ars = scenarioData.kpis.peakOnline;
-      }
-    }
-
-    function renderPxQOnDemand(scenarioData) {
-      const tbody = document.getElementById("pxqOnDemandBody");
-      if (!tbody) return;
-      tbody.innerHTML = "";
-
-      scenarioData.pxqOnDemand.forEach(row => {
-        const tr = document.createElement("tr");
-
-        const tdMes = document.createElement("td");
-        tdMes.textContent = row.mes;
-        if (row.note) tdMes.setAttribute("data-note", row.note);
-        tr.appendChild(tdMes);
-
-        const tdFact = document.createElement("td");
-        tdFact.className = "money";
-        tdFact.dataset.ars = row.facturacion;
-        tr.appendChild(tdFact);
-
-        const tdIni = document.createElement("td");
-        tdIni.textContent = row.inicio;
-        tr.appendChild(tdIni);
-
-        const tdCont = document.createElement("td");
-        tdCont.textContent = row.continuidad;
-        tr.appendChild(tdCont);
-
-        const tdAltas = document.createElement("td");
-        tdAltas.textContent = row.altas;
-        tr.appendChild(tdAltas);
-
-        tbody.appendChild(tr);
-      });
-
-      const kpiEl = document.getElementById("pxqOnDemandPeakKpi");
-      if (kpiEl) {
-        kpiEl.className = "card-kpi money";
-        kpiEl.dataset.ars = scenarioData.kpis.peakOnDemand;
+        kpiEl.dataset.ars = applyIVA(peakVal);
       }
     }
 
     // ============================================================================
     // 7) RENDER: GASTOS
     // ============================================================================
-
     function renderGastosMensuales(scenarioData) {
       const tbody = document.getElementById("gastosMensualesBody");
       if (!tbody) return;
       tbody.innerHTML = "";
 
-      scenarioData.gastosMensuales.forEach(row => {
+      scenarioData.gastosMensuales.forEach(r => {
         const tr = document.createElement("tr");
-
-        const tdMes = document.createElement("td");
-        tdMes.textContent = row.mes;
-        tr.appendChild(tdMes);
+        const tdMes = document.createElement("td"); tdMes.textContent = r.mes; tr.appendChild(tdMes);
 
         const tdEgresosTot = document.createElement("td");
         tdEgresosTot.className = "money";
-        tdEgresosTot.dataset.ars = row.egresos + row.impuestos;
+        tdEgresosTot.dataset.ars = r.egresos + r.impuestos;
         tr.appendChild(tdEgresosTot);
 
         const tdImpuestos = document.createElement("td");
         tdImpuestos.className = "money";
-        tdImpuestos.dataset.ars = row.impuestos;
+        tdImpuestos.dataset.ars = r.impuestos;
         tr.appendChild(tdImpuestos);
 
         tbody.appendChild(tr);
@@ -1662,277 +1247,308 @@
     }
 
     // ============================================================================
-    // 8) RENDER: PANEL DE CONTROL
+    // 8) RENDER: BARRAS (PROM PAX + CREC) - FIX REAL
     // ============================================================================
+    function renderBarras(scenarioData) {
+      const b = scenarioData.barras;
 
-    function renderPanelControl(scenarioData) {
-      const pc = scenarioData.panelControl;
+      const setBar = (fillId, valueId, fill, label) => {
+        const elFill = document.getElementById(fillId);
+        const elVal  = document.getElementById(valueId);
+        if (elFill) elFill.style.setProperty("--fill", String(fill)); // 0..1
+        if (elVal) elVal.textContent = label;
+      };
 
-      // Rentabilidad %
-      const rentCells = document.querySelectorAll(".pc-rent");
-      pc.rent.forEach((val, idx) => {
-        if (rentCells[idx]) rentCells[idx].textContent = val + "%";
-      });
+      setBar("barPresencialPromedioFill","barPresencialPromedioValue", b.presencial.promedioAlumnos.fill, b.presencial.promedioAlumnos.valueLabel);
+      setBar("barPresencialCrecimientoFill","barPresencialCrecimientoValue", b.presencial.crecimiento.fill, b.presencial.crecimiento.valueLabel);
 
-      function applyMoneyRow(arr, cssClass) {
-        const cells = document.querySelectorAll("." + cssClass);
-        arr.forEach((val, idx) => {
-          if (cells[idx]) {
-            cells[idx].dataset.ars = val;
-          }
-        });
-      }
+      setBar("barOnlinePromedioFill","barOnlinePromedioValue", b.online.promedioAlumnos.fill, b.online.promedioAlumnos.valueLabel);
+      setBar("barOnlineCrecimientoFill","barOnlineCrecimientoValue", b.online.crecimiento.fill, b.online.crecimiento.valueLabel);
 
-      applyMoneyRow(pc.factPres,     "pc-fact-pres");
-      applyMoneyRow(pc.factOnline,   "pc-fact-online");
-      applyMoneyRow(pc.factOnDemand, "pc-fact-ondemand");
-      applyMoneyRow(pc.mentoring,    "pc-mentoring");
-      applyMoneyRow(pc.cabina,       "pc-cabina");
-      applyMoneyRow(pc.impuestos,    "pc-impuestos");
-      applyMoneyRow(pc.egresos,      "pc-egresos");
-      applyMoneyRow(pc.factBruta,    "pc-fact-bruta");
-      applyMoneyRow(pc.utilidad,     "pc-utilidad");
+      setBar("barOnDemandPromedioFill","barOnDemandPromedioValue", b.onDemand.promedioAlumnos.fill, b.onDemand.promedioAlumnos.valueLabel);
+      setBar("barOnDemandCrecimientoFill","barOnDemandCrecimientoValue", b.onDemand.crecimiento.fill, b.onDemand.crecimiento.valueLabel);
     }
 
     // ============================================================================
-    // 9) GRÁFICOS EJECUTIVOS: CASHFLOW + MIX DE FACTURACIÓN
+    // 9) RENDER: PANEL CONTROL (IVA afecta ingresos)
     // ============================================================================
+    function renderPanelControl(scenarioData) {
+      const pc = scenarioData.panelControl;
+
+      document.querySelectorAll(".pc-rent").forEach((cell, i) => {
+        cell.textContent = (pc.rent[i] ?? 0) + "%";
+      });
+
+      function applyMoneyRow(arr, cssClass, isIngreso) {
+        const cells = document.querySelectorAll("." + cssClass);
+        arr.forEach((val, i) => {
+          if (!cells[i]) return;
+          const v = isIngreso ? applyIVA(val) : val;
+          cells[i].dataset.ars = v;
+        });
+      }
+
+      applyMoneyRow(pc.factPres,     "pc-fact-pres", true);
+      applyMoneyRow(pc.factOnline,   "pc-fact-online", true);
+      applyMoneyRow(pc.factOnDemand, "pc-fact-ondemand", true);
+      applyMoneyRow(pc.mentoring,    "pc-mentoring", true);
+      applyMoneyRow(pc.cabina,       "pc-cabina", true);
+
+      applyMoneyRow(pc.impuestos,    "pc-impuestos", false);
+      applyMoneyRow(pc.egresos,      "pc-egresos", false);
+
+      applyMoneyRow(pc.factBruta,    "pc-fact-bruta", true);
+
+      // utilidad: se muestra en money pero ya se calcula con IVA aplicado en chart
+      applyMoneyRow(pc.utilidad,     "pc-utilidad", false);
+    }
+
+    // ============================================================================
+    // 10) CHARTS: Cashflow + Mix (USD + IVA OK) + COLORES INTEGRADOS
+    // ============================================================================
+    const monthLabels = ["May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+    let cashflowChart = null;
+    let mixChart = null;
 
     function buildOrUpdateCharts(scenarioData) {
       const pc = scenarioData.panelControl;
-      if (!pc) return;
 
-      const sumArray = arr => arr.reduce((acc, val) => acc + val, 0);
+      const ingresosARS = pc.factBruta.map(v => applyIVA(v));
+      const egresosARS  = pc.egresos.map((v, i) => v + pc.impuestos[i]);
+      const utilidadARS = ingresosARS.map((v, i) => v - egresosARS[i]);
 
-      // A) CASHFLOW MENSUAL
-      const factBruta      = pc.factBruta;
-      const egresosTotales = pc.egresos.map((v, i) => v + pc.impuestos[i]);
-      const utilidad       = pc.utilidad;
+      const ingresos = ingresosARS.map(toDisplayCurrency);
+      const egresos  = egresosARS.map(toDisplayCurrency);
+      const utilidad = utilidadARS.map(toDisplayCurrency);
 
-      const cashData = {
-        labels: monthLabels,
-        datasets: [
-          {
-            label: "Facturación bruta",
-            data: factBruta,
-            borderColor: "rgba(255,140,66,0.95)",
-            backgroundColor: "rgba(255,140,66,0.2)",
-            tension: 0.35,
-            fill: false,
-            borderWidth: 2
-          },
-          {
-            label: "Egresos + impuestos",
-            data: egresosTotales,
-            borderColor: "rgba(255,75,106,0.95)",
-            backgroundColor: "rgba(255,75,106,0.2)",
-            tension: 0.35,
-            fill: false,
-            borderWidth: 2
-          },
-          {
-            label: "Utilidad",
-            data: utilidad,
-            borderColor: "rgba(50,208,170,0.95)",
-            backgroundColor: "rgba(50,208,170,0.2)",
-            tension: 0.35,
-            fill: false,
-            borderWidth: 2
-          }
-        ]
-      };
-
-      const cashOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            labels: {
-              color: "#f5f5f5",
-              font: { size: 11 }
-            }
-          },
-          tooltip: {
-            callbacks: {
-              label(context) {
-                const label = context.dataset.label || "";
-                const val = context.parsed.y;
-                return `${label}: ${formatChartMoney(val)}`;
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            ticks: {
-              color: "#b3b3c2",
-              font: { size: 10 }
-            },
-            grid: { color: "rgba(255,255,255,0.04)" }
-          },
-          y: {
-            ticks: {
-              color: "#b3b3c2",
-              font: { size: 10 },
-              callback(value) {
-                return formatChartMoney(value);
-              }
-            },
-            grid: { color: "rgba(255,255,255,0.04)" }
-          }
-        }
-      };
-
+      // CASHFLOW
       const cashCtx = document.getElementById("chartCashflow");
       if (cashCtx) {
+        const cashData = {
+          labels: monthLabels,
+          datasets: [
+            {
+              label: "Facturación",
+              data: ingresos,
+              type: "bar",
+              backgroundColor: COLOR_FACT.bg,
+              borderColor: COLOR_FACT.border,
+              borderWidth: 1,
+              borderRadius: 8
+            },
+            {
+              label: "Egresos",
+              data: egresos,
+              type: "bar",
+              backgroundColor: COLOR_EGRESOS.bg,
+              borderColor: COLOR_EGRESOS.border,
+              borderWidth: 1,
+              borderRadius: 8
+            },
+            {
+              label: "Utilidad",
+              data: utilidad,
+              type: "line",
+              tension: 0.35,
+              borderColor: COLOR_UTILIDAD.line,
+              backgroundColor: COLOR_UTILIDAD.fill,
+              fill: true,
+              pointRadius: 4,
+              pointBorderWidth: 2,
+              pointBackgroundColor: "rgba(0,0,0,0.7)",
+              pointBorderColor: "rgba(246,196,83,0.95)"
+            }
+          ]
+        };
+
+        const cashOptions = {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#f5f5f5", font: { size: 11 } } },
+            tooltip: {
+              callbacks: {
+                label(ctx) {
+                  const v = ctx.parsed.y;
+                  const pretty = (currencySelect.value === "USD") ? formatUSD(v) : formatARS(v);
+                  return `${ctx.dataset.label}: ${pretty}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { ticks: { color: "#b3b3c2" }, grid: { color: "rgba(255,255,255,0.05)" } },
+            y: {
+              ticks: {
+                color: "#b3b3c2",
+                callback(value) {
+                  return currencySelect.value === "USD" ? ("USD " + value) : ("$" + value);
+                }
+              },
+              grid: { color: "rgba(255,255,255,0.05)" }
+            }
+          }
+        };
+
         if (cashflowChart) {
           cashflowChart.data = cashData;
           cashflowChart.options = cashOptions;
           cashflowChart.update();
         } else {
           cashflowChart = new Chart(cashCtx.getContext("2d"), {
-            type: "line",
+            type: "bar",
             data: cashData,
             options: cashOptions
           });
         }
       }
 
-      // B) MIX DE FACTURACIÓN GLOBAL
-      const totalPresencial = sumArray(pc.factPres);
-      const totalOnline     = sumArray(pc.factOnline);
-      const totalOnDemand   = sumArray(pc.factOnDemand);
-      const totalMentoring  = sumArray(pc.mentoring);
-      const totalCabina     = sumArray(pc.cabina);
+      // MIX GLOBAL
+      const sumArray = arr => arr.reduce((a, b) => a + b, 0);
 
-      const mixData = {
-        labels: ["Presencial","Online","OnDemand","Mentoring","Cabina"],
-        datasets: [{
-          data: [
-            totalPresencial,
-            totalOnline,
-            totalOnDemand,
-            totalMentoring,
-            totalCabina
-          ],
-          backgroundColor: [
-            "rgba(255,41,117,0.9)",
-            "rgba(255,140,66,0.9)",
-            "rgba(246,196,83,0.9)",
-            "rgba(50,208,170,0.9)",
-            "rgba(110,120,255,0.9)"
-          ],
-          borderColor: "#050509",
-          borderWidth: 1
-        }]
-      };
+      const totalPresencialARS = sumArray(pc.factPres.map(applyIVA));
+      const totalOnlineARS     = sumArray(pc.factOnline.map(applyIVA));
+      const totalOnDemandARS   = sumArray(pc.factOnDemand.map(applyIVA));
+      const totalMentoringARS  = sumArray(pc.mentoring.map(applyIVA));
+      const totalCabinaARS     = sumArray(pc.cabina.map(applyIVA));
+
+      const totalPresencial = toDisplayCurrency(totalPresencialARS);
+      const totalOnline     = toDisplayCurrency(totalOnlineARS);
+      const totalOnDemand   = toDisplayCurrency(totalOnDemandARS);
+      const totalMentoring  = toDisplayCurrency(totalMentoringARS);
+      const totalCabina     = toDisplayCurrency(totalCabinaARS);
 
       const mixCtx = document.getElementById("chartMix");
-      if (!mixCtx) return;
+      if (mixCtx) {
+        const mixData = {
+          labels: ["Presencial","Online","OnDemand","Mentoring","Cabina"],
+          datasets: [{
+            data: [totalPresencial, totalOnline, totalOnDemand, totalMentoring, totalCabina],
+            backgroundColor: [
+              "rgba(255,41,117,0.90)",
+              "rgba(255,140,66,0.90)",
+              "rgba(246,196,83,0.90)",
+              "rgba(50,208,170,0.90)",
+              "rgba(110,120,255,0.90)"
+            ],
+            borderColor: "#050509",
+            borderWidth: 1
+          }]
+        };
 
-      const mixOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: {
-          padding: { top: 18 }
-        },
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              color: "#f5f5f5",
-              font: { size: 11 },
-              padding: 10
-            }
-          },
-          tooltip: {
-            callbacks: {
-              label(context) {
-                const valor = context.parsed;
-                const dataArr = context.dataset.data;
-                const sum = dataArr.reduce((a, b) => a + b, 0);
-                const porcentaje = sum === 0 ? 0 : Math.round((valor / sum) * 100);
-                return `${context.label}: ${formatChartMoney(valor)} (${porcentaje}%)`;
+        const mixOptions = {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 12 } },
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#f5f5f5", font: { size: 11 }, padding: 10 } },
+            tooltip: {
+              callbacks: {
+                label(ctx) {
+                  const v = ctx.parsed;
+                  const arr = ctx.dataset.data;
+                  const sum = arr.reduce((a, b) => a + b, 0);
+                  const pct = sum === 0 ? 0 : Math.round((v / sum) * 100);
+                  const pretty = (currencySelect.value === "USD") ? formatUSD(v) : formatARS(v);
+                  return `${ctx.label}: ${pretty} (${pct}%)`;
+                }
               }
             }
-          }
-        },
-        cutout: "55%"
-      };
+          },
+          cutout: "55%"
+        };
 
-      if (mixChart) {
-        mixChart.data = mixData;
-        mixChart.options = mixOptions;
-        mixChart.update();
-      } else {
-        mixChart = new Chart(mixCtx.getContext("2d"), {
-          type: "doughnut",
-          data: mixData,
-          options: mixOptions
-        });
+        if (mixChart) {
+          mixChart.data = mixData;
+          mixChart.options = mixOptions;
+          mixChart.update();
+        } else {
+          mixChart = new Chart(mixCtx.getContext("2d"), {
+            type: "doughnut",
+            data: mixData,
+            options: mixOptions
+          });
+        }
       }
     }
-    // ============================================================================
-    // 10) ORQUESTADOR & EVENT LISTENERS
-    // ============================================================================
 
-    function getCurrentScenarioData() {
-      const scenarioName = scenarioSelect.value;
-      if (scenarioName === "Custom") {
-        return buildCustomScenario();
-      }
-      return scenarios[scenarioName];
+    // ============================================================================
+    // 11) ORQUESTADOR
+    // ============================================================================
+    function getScenarioData() {
+      const sel = scenarioSelect.value;
+      if (sel === "Custom") return buildCustomScenario();
+      return scenarios[sel];
     }
 
     function updateAll() {
-      const data = getCurrentScenarioData();
-      renderPxQPresencial(data);
-      renderPxQOnline(data);
-      renderPxQOnDemand(data);
-      renderBarrasPxQ(data);  
-      renderGastosMensuales(data);
-      renderPanelControl(data);
+      const scenarioData = getScenarioData();
+
+      renderPxQ("pxqPresencialBody", scenarioData.pxqPresencial, "pxqPresencialPeakKpi", scenarioData.kpis.peakPresencial);
+      renderPxQ("pxqOnlineBody", scenarioData.pxqOnline, "pxqOnlinePeakKpi", scenarioData.kpis.peakOnline);
+      renderPxQ("pxqOnDemandBody", scenarioData.pxqOnDemand, "pxqOnDemandPeakKpi", scenarioData.kpis.peakOnDemand);
+
+      renderGastosMensuales(scenarioData);
+
+      renderBarras(scenarioData);
+
+      renderPanelControl(scenarioData);
+
       updateCurrency();
-      buildOrUpdateCharts(data);
+
+      buildOrUpdateCharts(scenarioData);
     }
 
-    // Cambio de escenario
+    // ============================================================================
+    // 12) UI EVENTS
+    // ============================================================================
+    function syncCustomUIVisibility() {
+      const isCustom = scenarioSelect.value === "Custom";
+      customControlsDiv.style.display = isCustom ? "block" : "none";
+    }
+
     scenarioSelect.addEventListener("change", () => {
-      if (scenarioSelect.value === "Custom") {
-        customControlsDiv.style.display = "block";
-      } else {
-        customControlsDiv.style.display = "none";
-      }
+      syncCustomUIVisibility();
       updateAll();
     });
 
-    // Sliders Custom
+    currencySelect.addEventListener("change", () => {
+      updateAll();
+    });
+
+    ivaSelect.addEventListener("change", () => {
+      ivaMode = ivaSelect.value;
+      updateAll();
+    });
+
     [customAltasInput, customPreciosInput, customEgresosInput].forEach(input => {
       input.addEventListener("input", () => {
-        updateRangeFill(input);
-        customAltasLabel.textContent   = customAltasInput.value   + "%";
-        customPreciosLabel.textContent = customPreciosInput.value + "%";
-        customEgresosLabel.textContent = customEgresosInput.value + "%";
-        updateAll();
+        customAltasLabel.textContent = (parseFloat(customAltasInput.value) || 0) + "%";
+        customPreciosLabel.textContent = (parseFloat(customPreciosInput.value) || 0) + "%";
+        customEgresosLabel.textContent = (parseFloat(customEgresosInput.value) || 0) + "%";
+
+        updateRangeFill(customAltasInput);
+        updateRangeFill(customPreciosInput);
+        updateRangeFill(customEgresosInput);
+
+        if (scenarioSelect.value === "Custom") updateAll();
       });
     });
 
-    // Cambio de divisa
-    currencySelect.addEventListener("change", () => {
-      updateCurrency();
-      buildOrUpdateCharts(getCurrentScenarioData());
-    });
+    // ============================================================================
+    // 13) INIT
+    // ============================================================================
+    syncCustomUIVisibility();
+    updateRangeFill(customAltasInput);
+    updateRangeFill(customPreciosInput);
+    updateRangeFill(customEgresosInput);
 
-    // Inicializamos fills de sliders
-    [customAltasInput, customPreciosInput, customEgresosInput].forEach(input => {
-      updateRangeFill(input);
-    });
-
-    // Primer render
     updateAll();
 
   })();
   </script>
 </body>
 </html>
+
+
 

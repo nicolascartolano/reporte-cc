@@ -434,6 +434,11 @@
       cursor: help;
     }
 
+    td[data-note]:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     td[data-note]::after {
       content: attr(data-note);
       position: absolute;
@@ -452,11 +457,6 @@
       pointer-events: none;
       transition: opacity 0.18s ease, transform 0.18s ease;
       z-index: 20;
-    }
-
-    td[data-note]:hover::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
     }
 
     .bar-row {
@@ -483,7 +483,7 @@
 
     .bar-fill {
       height: 100%;
-      width: var(--fill, 0.7);
+      width: calc(var(--fill, 0.7) * 100%);
       background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
     }
 
@@ -561,6 +561,7 @@
       <nav>
         <a href="#pxq">PxQ</a>
         <a href="#gastos">Gastos</a>
+        <a href="#vista-ejecutiva">Vista ejecutiva</a>
         <a href="#panel-control">Panel de control</a>
       </nav>
     </header>
@@ -795,9 +796,6 @@
                 <div class="card-title">Estructura de costos</div>
                 <div class="card-sub">Distribución típica por categoría (mensual)</div>
               </div>
-              <div>
-                <span class="tag-neutral">Editable</span>
-              </div>
             </div>
 
             <table>
@@ -841,6 +839,58 @@
                 <div class="bar-fill" style="--fill:0.50;"></div>
               </div>
               <div class="bar-value tag-danger">Optimizable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vista-ejecutiva">
+      <h2>Vista Ejecutiva 2026 <span class="badge">Inversores &amp; Socios</span></h2>
+
+      <div class="grid-2">
+        <!-- CASHFLOW MENSUAL -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Cashflow mensual</div>
+                <div class="card-sub">
+                  Facturación bruta vs egresos vs utilidad · Netos de IVA
+                </div>
+              </div>
+              <div class="tag-neutral">Por escenario</div>
+            </div>
+            <div style="position:relative; height:260px;">
+              <canvas id="chartCashflow"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIX DE FACTURACIÓN -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Mix de facturación</div>
+                <div class="card-sub">
+                  Participación anual por unidad de negocio · 2026
+                </div>
+              </div>
+              <div class="tag-neutral">Presencial · Online · OnDemand</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:18px; height:260px;">
+              <div style="flex:1; min-width:0;">
+                <canvas id="chartMix"></canvas>
+              </div>
+              <div style="font-size:12px; color:var(--text-soft); min-width:130px;">
+                <div style="margin-bottom:6px; text-transform:uppercase; letter-spacing:.08em; font-size:11px;">Claves</div>
+                <ul style="list-style:none; padding:0; margin:0;">
+                  <li>• Presencial: motor principal de caja</li>
+                  <li>• Online + OnDemand: escalabilidad regional</li>
+                  <li>• Mentoring &amp; Cabina: tickets altos de margen</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -1005,7 +1055,7 @@
       Casa Creativa · Dashboard 2026 · Para socios e inversores
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
   (function() {
     'use strict';
@@ -1203,6 +1253,11 @@
 
     const customBaseScenarioName = "Moderado";
 
+    // Gráficos ejecutivos
+    const monthLabels = ["May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+    let cashflowChart = null;
+    let mixChart = null;
+
     // ============================================================================
     // 2) HELPERS GENERALES
     // ============================================================================
@@ -1221,6 +1276,18 @@
 
     function formatUSD(value) {
       return "USD " + formatThousands(value);
+    }
+
+    // Mismo formateo de moneda para gráficos según divisa
+    function formatChartMoney(value) {
+      const mode = currencySelect.value || "ARS";
+      const v = Math.round(value);
+      if (mode === "ARS") {
+        return formatARS(v);
+      } else {
+        const usd = Math.round(v / dolar);
+        return formatUSD(usd);
+      }
     }
 
     // ============================================================================
@@ -1281,7 +1348,7 @@
       const factorIngresosPxQ = factorAltas * factorPrecio;
       const factorEgresos = 1 + pctEgresos / 100;
 
-      // --- PxQ Presencial / Online / OnDemand
+      // PxQ Presencial / Online / OnDemand
       data.pxqPresencial.forEach(row => {
         row.inicio = Math.round(row.inicio * factorAltas);
         row.continuidad = Math.round(row.continuidad * factorAltas);
@@ -1303,13 +1370,13 @@
         row.facturacion = Math.round(row.facturacion * factorIngresosPxQ);
       });
 
-      // --- Gastos
+      // Gastos
       data.gastosMensuales.forEach(row => {
         row.egresos = Math.round(row.egresos * factorEgresos);
         row.impuestos = Math.round(row.impuestos * factorEgresos);
       });
 
-      // --- Panel de control
+      // Panel de control
       const pc = data.panelControl;
 
       function scaleArray(arr, factor) {
@@ -1344,13 +1411,13 @@
         return Math.round((util / fb) * 100);
       });
 
-      // --- KPIs
+      // KPIs
       data.kpis.peakPresencial = Math.max(...data.pxqPresencial.map(r => r.facturacion));
       data.kpis.peakOnline     = Math.max(...data.pxqOnline.map(r => r.facturacion));
       data.kpis.peakOnDemand   = Math.max(...data.pxqOnDemand.map(r => r.facturacion));
       data.kpis.peakEgresos    = Math.max(...data.gastosMensuales.map(r => r.impuestos));
 
-      // --- Barras (ajuste suave en promedio pax + fill)
+      // Barras (ajuste suave)
       const baseBars = base.barras;
       data.barras = deepClone(baseBars);
 
@@ -1578,130 +1645,243 @@
     }
 
     // ============================================================================
-    // 9) RENDER: BARRAS
+    // 9) GRÁFICOS EJECUTIVOS: CASHFLOW + MIX DE FACTURACIÓN
     // ============================================================================
 
-    function renderBarrasPxQ(scenarioData) {
-      const barras = scenarioData.barras;
+    function buildOrUpdateCharts(scenarioData) {
+      const pc = scenarioData.panelControl;
+      if (!pc) return;
 
-      // Presencial
-      const presPromFill = document.getElementById("barPresencialPromedioFill");
-      const presPromVal  = document.getElementById("barPresencialPromedioValue");
-      const presCreFill  = document.getElementById("barPresencialCrecimientoFill");
-      const presCreVal   = document.getElementById("barPresencialCrecimientoValue");
+      const sumArray = arr => arr.reduce((acc, val) => acc + val, 0);
 
-      if (presPromFill) presPromFill.style.setProperty("--fill", barras.presencial.promedioAlumnos.fill);
-      if (presPromVal)  presPromVal.textContent = barras.presencial.promedioAlumnos.valueLabel;
-      if (presCreFill)  presCreFill.style.setProperty("--fill", barras.presencial.crecimiento.fill);
-      if (presCreVal)   presCreVal.textContent = barras.presencial.crecimiento.valueLabel;
+      // A) CASHFLOW MENSUAL
+      const factBruta      = pc.factBruta;
+      const egresosTotales = pc.egresos.map((v, i) => v + pc.impuestos[i]);
+      const utilidad       = pc.utilidad;
 
-      // Online
-      const onlPromFill = document.getElementById("barOnlinePromedioFill");
-      const onlPromVal  = document.getElementById("barOnlinePromedioValue");
-      const onlCreFill  = document.getElementById("barOnlineCrecimientoFill");
-      const onlCreVal   = document.getElementById("barOnlineCrecimientoValue");
+      const cashData = {
+        labels: monthLabels,
+        datasets: [
+          {
+            label: "Facturación bruta",
+            data: factBruta,
+            borderColor: "rgba(255,140,66,0.95)",
+            backgroundColor: "rgba(255,140,66,0.2)",
+            tension: 0.35,
+            fill: false,
+            borderWidth: 2
+          },
+          {
+            label: "Egresos + impuestos",
+            data: egresosTotales,
+            borderColor: "rgba(255,75,106,0.95)",
+            backgroundColor: "rgba(255,75,106,0.2)",
+            tension: 0.35,
+            fill: false,
+            borderWidth: 2
+          },
+          {
+            label: "Utilidad",
+            data: utilidad,
+            borderColor: "rgba(50,208,170,0.95)",
+            backgroundColor: "rgba(50,208,170,0.2)",
+            tension: 0.35,
+            fill: false,
+            borderWidth: 2
+          }
+        ]
+      };
 
-      if (onlPromFill) onlPromFill.style.setProperty("--fill", barras.online.promedioAlumnos.fill);
-      if (onlPromVal)  onlPromVal.textContent = barras.online.promedioAlumnos.valueLabel;
-      if (onlCreFill)  onlCreFill.style.setProperty("--fill", barras.online.crecimiento.fill);
-      if (onlCreVal)   onlCreVal.textContent = barras.online.crecimiento.valueLabel;
+      const cashOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: "#f5f5f5",
+              font: { size: 11 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label(context) {
+                const label = context.dataset.label || "";
+                const val = context.parsed.y;
+                return `${label}: ${formatChartMoney(val)}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: "#b3b3c2",
+              font: { size: 10 }
+            },
+            grid: { color: "rgba(255,255,255,0.04)" }
+          },
+          y: {
+            ticks: {
+              color: "#b3b3c2",
+              font: { size: 10 },
+              callback(value) {
+                return formatChartMoney(value);
+              }
+            },
+            grid: { color: "rgba(255,255,255,0.04)" }
+          }
+        }
+      };
 
-      // OnDemand
-      const ondPromFill = document.getElementById("barOnDemandPromedioFill");
-      const ondPromVal  = document.getElementById("barOnDemandPromedioValue");
-      const ondCreFill  = document.getElementById("barOnDemandCrecimientoFill");
-      const ondCreVal   = document.getElementById("barOnDemandCrecimientoValue");
+      const cashCtx = document.getElementById("chartCashflow");
+      if (cashCtx) {
+        if (cashflowChart) {
+          cashflowChart.data = cashData;
+          cashflowChart.options = cashOptions;
+          cashflowChart.update();
+        } else {
+          cashflowChart = new Chart(cashCtx.getContext("2d"), {
+            type: "line",
+            data: cashData,
+            options: cashOptions
+          });
+        }
+      }
 
-      if (ondPromFill) ondPromFill.style.setProperty("--fill", barras.onDemand.promedioAlumnos.fill);
-      if (ondPromVal)  ondPromVal.textContent = barras.onDemand.promedioAlumnos.valueLabel;
-      if (ondCreFill)  ondCreFill.style.setProperty("--fill", barras.onDemand.crecimiento.fill);
-      if (ondCreVal)   ondCreVal.textContent = barras.onDemand.crecimiento.valueLabel;
+      // B) MIX DE FACTURACIÓN GLOBAL
+      const totalPresencial = sumArray(pc.factPres);
+      const totalOnline     = sumArray(pc.factOnline);
+      const totalOnDemand   = sumArray(pc.factOnDemand);
+      const totalMentoring  = sumArray(pc.mentoring);
+      const totalCabina     = sumArray(pc.cabina);
+
+      const mixData = {
+        labels: ["Presencial","Online","OnDemand","Mentoring","Cabina"],
+        datasets: [{
+          data: [
+            totalPresencial,
+            totalOnline,
+            totalOnDemand,
+            totalMentoring,
+            totalCabina
+          ],
+          backgroundColor: [
+            "rgba(255,41,117,0.9)",
+            "rgba(255,140,66,0.9)",
+            "rgba(246,196,83,0.9)",
+            "rgba(50,208,170,0.9)",
+            "rgba(110,120,255,0.9)"
+          ],
+          borderColor: "#050509",
+          borderWidth: 1
+        }]
+      };
+
+      const mixCtx = document.getElementById("chartMix");
+      if (!mixCtx) return;
+
+      const mixOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: { top: 18 }
+        },
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              color: "#f5f5f5",
+              font: { size: 11 },
+              padding: 10
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label(context) {
+                const valor = context.parsed;
+                const dataArr = context.dataset.data;
+                const sum = dataArr.reduce((a, b) => a + b, 0);
+                const porcentaje = sum === 0 ? 0 : Math.round((valor / sum) * 100);
+                return `${context.label}: ${formatChartMoney(valor)} (${porcentaje}%)`;
+              }
+            }
+          }
+        },
+        cutout: "55%"
+      };
+
+      if (mixChart) {
+        mixChart.data = mixData;
+        mixChart.options = mixOptions;
+        mixChart.update();
+      } else {
+        mixChart = new Chart(mixCtx.getContext("2d"), {
+          type: "doughnut",
+          data: mixData,
+          options: mixOptions
+        });
+      }
     }
     // ============================================================================
-    // 10) ORQUESTADOR DE ESCENARIOS
+    // 10) ORQUESTADOR & EVENT LISTENERS
     // ============================================================================
 
-    function renderScenario(scenarioName) {
-      let data;
+    function getCurrentScenarioData() {
+      const scenarioName = scenarioSelect.value;
       if (scenarioName === "Custom") {
-        data = buildCustomScenario();
-      } else {
-        data = scenarios[scenarioName];
+        return buildCustomScenario();
       }
-      if (!data) return;
+      return scenarios[scenarioName];
+    }
 
+    function updateAll() {
+      const data = getCurrentScenarioData();
       renderPxQPresencial(data);
       renderPxQOnline(data);
       renderPxQOnDemand(data);
       renderGastosMensuales(data);
       renderPanelControl(data);
-      renderBarrasPxQ(data);
-
       updateCurrency();
+      buildOrUpdateCharts(data);
     }
 
-    // ============================================================================
-    // 11) EVENTOS
-    // ============================================================================
-
-    function handleScenarioChange() {
-      const name = scenarioSelect.value;
-      if (name === "Custom") {
+    // Cambio de escenario
+    scenarioSelect.addEventListener("change", () => {
+      if (scenarioSelect.value === "Custom") {
         customControlsDiv.style.display = "block";
       } else {
         customControlsDiv.style.display = "none";
       }
-      renderScenario(name);
-    }
+      updateAll();
+    });
 
-    scenarioSelect.addEventListener("change", handleScenarioChange);
-    currencySelect.addEventListener("change", updateCurrency);
+    // Sliders Custom
+    [customAltasInput, customPreciosInput, customEgresosInput].forEach(input => {
+      input.addEventListener("input", () => {
+        updateRangeFill(input);
+        customAltasLabel.textContent   = customAltasInput.value   + "%";
+        customPreciosLabel.textContent = customPreciosInput.value + "%";
+        customEgresosLabel.textContent = customEgresosInput.value + "%";
+        updateAll();
+      });
+    });
 
-    function handleCustomInputChange() {
-      customAltasLabel.textContent   = (parseFloat(customAltasInput.value)   || 0) + "%";
-      customPreciosLabel.textContent = (parseFloat(customPreciosInput.value) || 0) + "%";
-      customEgresosLabel.textContent = (parseFloat(customEgresosInput.value) || 0) + "%";
+    // Cambio de divisa
+    currencySelect.addEventListener("change", () => {
+      updateCurrency();
+      buildOrUpdateCharts(getCurrentScenarioData());
+    });
 
-      updateRangeFill(customAltasInput);
-      updateRangeFill(customPreciosInput);
-      updateRangeFill(customEgresosInput);
+    // Inicializamos fills de sliders
+    [customAltasInput, customPreciosInput, customEgresosInput].forEach(input => {
+      updateRangeFill(input);
+    });
 
-      if (scenarioSelect.value === "Custom") {
-        renderScenario("Custom");
-      }
-    }
-
-    if (customAltasInput && customPreciosInput && customEgresosInput) {
-      customAltasInput.addEventListener("input", handleCustomInputChange);
-      customPreciosInput.addEventListener("input", handleCustomInputChange);
-      customEgresosInput.addEventListener("input", handleCustomInputChange);
-    }
-
-    // ============================================================================
-    // 12) INICIALIZACIÓN
-    // ============================================================================
-
-    // Ocultamos controles custom al inicio
-    if (customControlsDiv) {
-      customControlsDiv.style.display = "none";
-    }
-
-    // Inicializar labels y fill de sliders
-    if (customAltasInput) {
-      customAltasLabel.textContent = customAltasInput.value + "%";
-      updateRangeFill(customAltasInput);
-    }
-    if (customPreciosInput) {
-      customPreciosLabel.textContent = customPreciosInput.value + "%";
-      updateRangeFill(customPreciosInput);
-    }
-    if (customEgresosInput) {
-      customEgresosLabel.textContent = customEgresosInput.value + "%";
-      updateRangeFill(customEgresosInput);
-    }
-
-    // Escenario por defecto: Optimista
-    renderScenario("Optimista");
+    // Primer render
+    updateAll();
 
   })();
-</script>
+  </script>
+</body>
+</html>
+

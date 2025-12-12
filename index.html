@@ -859,7 +859,7 @@
                   Facturación bruta vs egresos vs utilidad · Netos de IVA
                 </div>
               </div>
-              <div class="tag-neutral">Por escenario</div>
+              <div class="tag-neutral">Por Escenario</div>
             </div>
             <div style="position:relative; height:260px;">
               <canvas id="chartCashflow"></canvas>
@@ -907,13 +907,13 @@
               <div class="card-title">Panel de control 2026</div>
               <div class="card-sub">Rentabilidad, facturación, impuestos y utilidad · Casa Creativa</div>
             </div>
-            <div class="tag-neutral">Proyección anual · Escenarios</div>
+            <div class="tag-neutral">Proyección Anual </div>
           </div>
 
           <table>
             <thead>
               <tr class="month-row">
-                <th>Tipo</th>
+                <th>Tipo ↓</th>
                 <th>May</th>
                 <th>Jun</th>
                 <th>Jul</th>
@@ -1451,6 +1451,56 @@
       return data;
     }
 
+// ============================================================================
+// RENDER: BARRAS DE PROM. PAX Y CRECIMIENTO — PRESENCIAL / ONLINE / ONDEMAND
+// ============================================================================
+  function renderBarrasPxQ(scenarioData) {
+    const b = scenarioData.barras;
+
+  // --- PRESENCIAL ---
+  const presPromFill  = document.getElementById("barPresencialPromedioFill");
+  const presPromValue = document.getElementById("barPresencialPromedioValue");
+  const presCreFill   = document.getElementById("barPresencialCrecimientoFill");
+  const presCreValue  = document.getElementById("barPresencialCrecimientoValue");
+
+  if (presPromFill && presPromValue && presCreFill && presCreValue) {
+    presPromFill.style.setProperty("--fill", b.presencial.promedioAlumnos.fill);
+    presPromValue.textContent = b.presencial.promedioAlumnos.valueLabel;
+
+    presCreFill.style.setProperty("--fill", b.presencial.crecimiento.fill);
+    presCreValue.textContent = b.presencial.crecimiento.valueLabel;
+  }
+
+  // --- ONLINE ---
+  const onlPromFill  = document.getElementById("barOnlinePromedioFill");
+  const onlPromValue = document.getElementById("barOnlinePromedioValue");
+  const onlCreFill   = document.getElementById("barOnlineCrecimientoFill");
+  const onlCreValue  = document.getElementById("barOnlineCrecimientoValue");
+
+  if (onlPromFill && onlPromValue && onlCreFill && onlCreValue) {
+    onlPromFill.style.setProperty("--fill", b.online.promedioAlumnos.fill);
+    onlPromValue.textContent = b.online.promedioAlumnos.valueLabel;
+
+    onlCreFill.style.setProperty("--fill", b.online.crecimiento.fill);
+    onlCreValue.textContent = b.online.crecimiento.valueLabel;
+  }
+
+  // --- ONDEMAND ---
+  const ondPromFill  = document.getElementById("barOnDemandPromedioFill");
+  const ondPromValue = document.getElementById("barOnDemandPromedioValue");
+  const ondCreFill   = document.getElementById("barOnDemandCrecimientoFill");
+  const ondCreValue  = document.getElementById("barOnDemandCrecimientoValue");
+
+  if (ondPromFill && ondPromValue && ondCreFill && ondCreValue) {
+    ondPromFill.style.setProperty("--fill", b.onDemand.promedioAlumnos.fill);
+    ondPromValue.textContent = b.onDemand.promedioAlumnos.valueLabel;
+
+    ondCreFill.style.setProperty("--fill", b.onDemand.crecimiento.fill);
+    ondCreValue.textContent = b.onDemand.crecimiento.valueLabel;
+  }
+}
+
+
     // ============================================================================
     // 6) RENDER: PXQ
     // ============================================================================
@@ -1839,6 +1889,7 @@
       renderPxQPresencial(data);
       renderPxQOnline(data);
       renderPxQOnDemand(data);
+      renderBarrasPxQ(data);  
       renderGastosMensuales(data);
       renderPanelControl(data);
       updateCurrency();
